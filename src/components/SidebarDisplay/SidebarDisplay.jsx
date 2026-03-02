@@ -18,9 +18,9 @@ const SidebarDisplay = ({ items, renderPanel, activeContent, setActiveContent })
 
     return (
         <section className="flex flex-col sm:flex-row gap-4 max-h-[calc(100vh-8rem)]">
-            <aside className="app-surface p-3 w-full sm:w-1/3 md:w-1/4 min-w-48 max-h-full overflow-auto">
+            <aside className="app-surface p-3 w-full sm:w-1/3 md:w-1/4 min-w-48 max-h-full">
                 <nav aria-label="Sidebar navigation">
-                    <ul className="flex flex-row sm:flex-col gap-2 overflow-x-auto">
+                    <ul className="flex flex-wrap sm:flex-col gap-2">
                         {items.map((item) => {
                             const isActive = item.id === activeContent;
                             return (
@@ -29,7 +29,7 @@ const SidebarDisplay = ({ items, renderPanel, activeContent, setActiveContent })
                                         type="button"
                                         onClick={() => setActiveContent(item.id)}
                                         className={
-                                            "app-button w-full justify-start " +
+                                            "app-button w-full justify-start text-base sm:text-sm md:text-base " +
                                             (isActive ? "app-button--active" : "")
                                         }
                                         aria-current={isActive ? "page" : undefined}

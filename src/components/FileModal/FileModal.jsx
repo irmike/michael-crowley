@@ -1,4 +1,5 @@
 import { getImagePath } from '@/utils/paths';
+import PDFViewer from '@/components/PDFViewer/PDFViewer';
 
 const FileModal = ({ isOpen, onClose, file }) => {
     if (!isOpen || !file) return null;
@@ -10,6 +11,9 @@ const FileModal = ({ isOpen, onClose, file }) => {
 
     const closeButtonClassName = "px-3 py-1 bg-red-500 text-black border border-black rounded";
 
+    const fileUrl = getImagePath(file.fileUrl);
+    const isPdf = fileUrl.toLowerCase().endsWith('.pdf');
+
     return (
         <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
             <div className="app-surface-strong w-full max-w-3xl max-h-[80vh] flex flex-col shadow-2xl" style={{ background: 'rgba(24, 24, 27, 0.98)' }}>
@@ -20,12 +24,16 @@ const FileModal = ({ isOpen, onClose, file }) => {
                     </button>
                 </div>
                 <div className="flex-1 overflow-auto p-4">
-                    <iframe
-                        title={file.name}
-                        src={getImagePath(file.fileUrl)}
-                        className="w-full h-[60vh]"
-                        style={{ border: `1px solid var(--border)` }}
-                    />
+                    {isPdf ? (
+                        <PDFViewer url={fileUrl} className="w-full h-[60vh]" style={{ border: `1px solid var(--border)` }} />
+                    ) : (
+                        <iframe
+                            title={file.name}
+                            src={fileUrl}
+                            className="w-full h-[60vh]"
+                            style={{ border: `1px solid var(--border)` }}
+                        />
+                    )}
                 </div>
                 <div className="p-4 border-t flex justify-end gap-2" style={{ borderColor: "var(--border)" }}>
                     <button type="button" onClick={handleOpenInNewTab} className="app-button">
