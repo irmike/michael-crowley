@@ -22,19 +22,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24.13.0'
-      - name: Enable basePath for GitHub Pages
-        run: |
-          node -e "
-          const fs = require('fs');
-          let config = fs.readFileSync('next.config.mjs', 'utf8');
-          config = config.replace('// basePath: \'/michael-crowley\',', 'basePath: \'/michael-crowley\',');
-          config = config.replace('// assetPrefix: \'/michael-crowley/\',', 'assetPrefix: \'/michael-crowley/\',');
-          fs.writeFileSync('next.config.mjs', config);
-          "
       - name: Install dependencies
         run: npm install
-      - name: Build static site
+      - name: Build static site with basePath
         run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: '/michael-crowley'
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
