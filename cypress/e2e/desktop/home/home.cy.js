@@ -27,3 +27,32 @@ describe('Home Page - Desktop', () => {
   });
 });
 
+describe('UpdateLog on Home Page', () => {
+  it('shows the Recent Updates section', () => {
+    cy.contains('h2', 'Recent Updates').should('be.visible');
+  });
+
+  it('shows the most recent update by default', () => {
+    cy.get('.update-log-container').within(() => {
+      cy.contains('Mobile Display Fix').should('be.visible');
+      cy.contains('Improved mobile responsiveness for all pages and components.').should('be.visible');
+    });
+  });
+
+  it('expands and collapses past updates', () => {
+    cy.get('.update-log-container').within(() => {
+      cy.contains('Show More Updates').click();
+      cy.contains('Initial Site Launch').should('be.visible');
+      cy.contains('Hide Past Updates').click();
+      cy.contains('Initial Site Launch').should('not.be.visible');
+    });
+  });
+
+  it('shows all details for the most recent update when expanded', () => {
+    cy.get('.update-log-container').within(() => {
+      cy.contains('Mobile Display Fix').click();
+      cy.contains('Made SidebarDisplay fully mobile-friendly').should('be.visible');
+      cy.contains('Created UpdateLog component for home page').should('be.visible');
+    });
+  });
+});
