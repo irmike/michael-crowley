@@ -25,6 +25,7 @@ body {
   color: var(--foreground);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
     "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
+  overflow-x: hidden;
 }
 
 /* Base element styling (lightweight "site theme") */
@@ -97,6 +98,7 @@ p {
     border: 1px solid var(--border);
     color: var(--foreground);
     transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+    font-size: 1rem;
   }
 
   .app-button:hover {
@@ -107,5 +109,19 @@ p {
     background: var(--accent);
     border-color: var(--accent);
     color: #111827; /* readable on orange */
+  }
+
+  /* Responsive font sizes for buttons */
+  @media (max-width: 640px) {
+    .app-button {
+      font-size: 0.95rem;
+      padding: 0.5rem 0.75rem;
+    }
+  }
+  @media (max-width: 480px) {
+    .app-button {
+      font-size: 0.9rem;
+      padding: 0.5rem 0.5rem;
+    }
   }
 }

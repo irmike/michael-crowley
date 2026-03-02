@@ -1,6 +1,7 @@
 "use client";
 
 import { getImagePath } from '@/utils/paths';
+import PDFViewer from '@/components/PDFViewer/PDFViewer';
 
 export default function ResumePage() {
   const resumeUrl = getImagePath("/resume/Resume.pdf");
@@ -17,12 +18,7 @@ export default function ResumePage() {
       </p>
 
       <div>
-        <iframe
-          title="Resume"
-          src={resumeUrl}
-          className="w-full h-[80vh]"
-          style={{ border: `1px solid var(--border)` }}
-        />
+        <PDFViewer url={resumeUrl} className="w-full h-[80vh]" style={{ border: `1px solid var(--border)` }} />
       </div>
     </main>
   );

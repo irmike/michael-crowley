@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { getImagePath, getPagePath } from "@/utils/paths";
+import UpdateLog from '@/components/UpdateLog/UpdateLog';
 
 export default function Home() {
   return (
@@ -21,11 +22,11 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="mb-12">
-        <h2 className="mb-6">Featured Project</h2>
-        <div className="app-surface p-6 hover:opacity-90 transition-opacity cursor-pointer">
+      <section className="mb-8">
+        <h2 className="mb-4 text-lg font-semibold">Featured Project</h2>
+        <div className="app-surface p-3 hover:opacity-90 transition-opacity cursor-pointer">
           <a href={getPagePath("/projects#arc-stat-tester")} className="block">
-            <div className="mb-4 relative w-full aspect-video rounded overflow-hidden">
+            <div className="mb-3 mx-auto relative w-full max-w-xs aspect-[3/2] rounded overflow-hidden border-4 border-black">
               <Image
                 src={getImagePath("/home/Arc-Stat-Tester.png")}
                 alt="Arc Raiders Stat Tester"
@@ -34,15 +35,19 @@ export default function Home() {
                 priority
               />
             </div>
-            <h3 className="font-semibold mb-2">Arc Raiders Stat Tester</h3>
-            <p className="text-sm mb-3">
+            <h3 className="font-semibold mb-1 text-base">Arc Raiders Stat Tester</h3>
+            <p className="text-sm mb-2">
               A stat tester I created for the game Arc Raiders. Built using React and Vite.
             </p>
-            <p className="text-sm">
+            <p className="text-xs">
               View Project →
             </p>
           </a>
         </div>
+      </section>
+
+      <section className="mb-12">
+        <UpdateLog />
       </section>
 
       <section>
