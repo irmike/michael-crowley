@@ -37,7 +37,11 @@ export default function ProjectsPage() {
           <div>
             <iframe
               title={project.name}
-              src={getImagePath(project.fileUrl)}
+              src={
+                project.fileUrl.startsWith("/")
+                  ? getImagePath(project.fileUrl)
+                  : project.fileUrl
+              }
               className="w-full h-[80vh]"
               style={{ border: `1px solid var(--border)` }}
             />
