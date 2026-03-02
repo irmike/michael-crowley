@@ -48,14 +48,12 @@ export default function AboutPage() {
       </section>
 
       {/* Section 3: Interests/Fun Facts */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Beyond Code</h2>
-        <p>
-          When I'm not coding, you can find me [add your interests here]. I'm
-          also an active member of the [communities/organizations], where I
-          [contribute/participate].
-        </p>
-      </section>
+      {/*<section className="mb-8">*/}
+      {/*  <h2 className="text-2xl font-bold mb-4">Beyond Code</h2>*/}
+      {/*  <p>*/}
+      {/*    Will update soon, this is just a placeholder.*/}
+      {/*  </p>*/}
+      {/*</section>*/}
     </main>
   );
 }
