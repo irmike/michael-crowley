@@ -9,7 +9,7 @@ function Header() {
                     <Link href="/" className="text-lg font-bold whitespace-nowrap">
                         Home
                     </Link>
-                    <div className="flex gap-4 whitespace-nowrap">
+                    <div className="flex gap-4 whitespace-nowrap text-sm sm:text-base">
                         <Link href="/about">About</Link>
                         <Link href="/contact">Contact</Link>
                         <Link href="/skills">Skills</Link>
