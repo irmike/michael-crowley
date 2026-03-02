@@ -21,8 +21,13 @@ jobs:
           node-version: '24.13.0'
       - name: Enable basePath for GitHub Pages
         run: |
-          sed -i 's|// basePath: .*/michael-crowley.|basePath: '\''/michael-crowley'\'',|g' next.config.mjs
-          sed -i 's|// assetPrefix: .*/michael-crowley/|assetPrefix: '\''/michael-crowley/'\'',|g' next.config.mjs
+          node -e "
+          const fs = require('fs');
+          let config = fs.readFileSync('next.config.mjs', 'utf8');
+          config = config.replace('// basePath: \'/michael-crowley\',', 'basePath: \'/michael-crowley\',');
+          config = config.replace('// assetPrefix: \'/michael-crowley/\',', 'assetPrefix: \'/michael-crowley/\',');
+          fs.writeFileSync('next.config.mjs', config);
+          "
       - name: Install dependencies
         run: npm install
       - name: Build static site
