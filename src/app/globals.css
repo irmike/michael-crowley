@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Minimal dark + orange accent */
+  --bg: #0b0b0f;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(255, 255, 255, 0.10);
+  --text: #f4f4f5;
+  --muted: rgba(244, 244, 245, 0.72);
+  --border: rgba(244, 244, 245, 0.16);
+  --accent: #fb923c; /* orange-400-ish */
+  --accent-strong: #f97316; /* orange-500-ish */
+
+  --background: var(--bg);
+  --foreground: var(--text);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+/* Base element styling (lightweight "site theme") */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.25rem; /* text-xl */
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--muted);
+}
+
+@layer components {
+  /* Use plain CSS here to avoid @apply referencing other custom classes (Tailwind v4 constraint). */
+  .app-container {
+    width: 100%;
+    max-width: 56rem; /* ~max-w-4xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .app-main {
+    width: 100%;
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .app-surface {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+  }
+
+  .app-surface-strong {
+    background: var(--surface-strong);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+  }
+
+  .app-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+  }
+
+  .app-button:hover {
+    background: var(--surface-strong);
+  }
+
+  .app-button--active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #111827; /* readable on orange */
+  }
 }

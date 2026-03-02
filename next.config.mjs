@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  output: 'export',
   reactCompiler: true,
+  basePath: '/michael-crowley',
+  assetPrefix: '/michael-crowley/',
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
