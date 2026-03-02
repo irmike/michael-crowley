@@ -1,5 +1,9 @@
+"use client";
+
+import { getImagePath } from '@/utils/paths';
+
 export default function ResumePage() {
-  const resumeUrl = "/resume/Resume.pdf";
+  const resumeUrl = getImagePath("/resume/Resume.pdf");
 
   return (
     <main>

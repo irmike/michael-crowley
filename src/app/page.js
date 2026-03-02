@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { getImagePath } from "@/utils/paths";
 
 export default function Home() {
   return (
@@ -26,7 +27,7 @@ export default function Home() {
           <a href="/projects#arc-stat-tester" className="block">
             <div className="mb-4 relative w-full aspect-video rounded overflow-hidden">
               <Image
-                src="/home/Arc-Stat-Tester.png"
+                src={getImagePath("/home/Arc-Stat-Tester.png")}
                 alt="Arc Raiders Stat Tester"
                 fill
                 className="object-cover"

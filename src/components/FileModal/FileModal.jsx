@@ -1,9 +1,11 @@
+import { getImagePath } from '@/utils/paths';
+
 const FileModal = ({ isOpen, onClose, file }) => {
     if (!isOpen || !file) return null;
 
     const handleOpenInNewTab = () => {
         // Open the file URL in a new tab (from there, the user can download if they want).
-        window.open(file.fileUrl, '_blank', 'noopener,noreferrer');
+        window.open(getImagePath(file.fileUrl), '_blank', 'noopener,noreferrer');
     };
 
     const closeButtonClassName = "px-3 py-1 bg-red-500 text-black border border-black rounded";
@@ -20,7 +22,7 @@ const FileModal = ({ isOpen, onClose, file }) => {
                 <div className="flex-1 overflow-auto p-4">
                     <iframe
                         title={file.name}
-                        src={file.fileUrl}
+                        src={getImagePath(file.fileUrl)}
                         className="w-full h-[60vh]"
                         style={{ border: `1px solid var(--border)` }}
                     />
