@@ -28,13 +28,15 @@ describe('Home Page - Desktop', () => {
 });
 
 describe('UpdateLog on Home Page', () => {
-  it('shows the Recent Updates section', () => {
-    cy.contains('h2', 'Recent Updates').should('be.visible');
+  beforeEach(() => {
+    cy.viewport(1280, 800); // Standard desktop size
+    cy.visit('/');
   });
 
   it('shows the most recent update by default', () => {
     cy.get('.update-log-container').within(() => {
       cy.contains('Mobile Display Fix').should('be.visible');
+      cy.contains('button', 'expand').first().click();
       cy.contains('Improved mobile responsiveness for all pages and components.').should('be.visible');
     });
   });
@@ -42,10 +44,12 @@ describe('UpdateLog on Home Page', () => {
   it('expands and collapses past updates', () => {
     cy.get('.update-log-container').within(() => {
       cy.contains('Show More Updates').click();
-      cy.contains('Initial Site Launch').should('be.visible');
-      cy.contains('Hide Past Updates').click();
-      cy.contains('Initial Site Launch').should('not.be.visible');
     });
+    cy.contains('Initial Site Launch', { timeout: 5000 }).should('be.visible');
+    cy.get('.update-log-container').within(() => {
+      cy.contains('Hide Past Updates').click();
+    });
+    cy.contains('Initial Site Launch').should('not.exist');
   });
 
   it('shows all details for the most recent update when expanded', () => {

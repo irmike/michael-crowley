@@ -1,5 +1,5 @@
 import { Disclosure } from '@headlessui/react';
-import { updateData } from '@/data/updateData';
+import { updateData } from '../../data/updateData';
 import Update from './Update';
 
 export default function UpdateLog() {
@@ -9,7 +9,7 @@ export default function UpdateLog() {
 
   return (
     <section
-      className="mt-12 rounded-lg border-2 border-[--border] text-[#111827] shadow-md p-4 sm:p-5"
+      className="update-log-container mt-12 rounded-lg border-2 border-[--border] text-[#111827] shadow-md p-4 sm:p-5"
       style={{ background: 'var(--accent-strong)' }}
     >
       <h2 className="mb-2 text-lg font-bold">Recent Updates</h2>
