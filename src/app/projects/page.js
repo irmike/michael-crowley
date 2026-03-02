@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { projectsData } from "@/data/projectsData";
+import { getImagePath } from "@/utils/paths";
 import SidebarDisplay from "@/components/SidebarDisplay/SidebarDisplay";
 
 export default function ProjectsPage() {
@@ -36,7 +37,7 @@ export default function ProjectsPage() {
           <div>
             <iframe
               title={project.name}
-              src={project.fileUrl}
+              src={getImagePath(project.fileUrl)}
               className="w-full h-[80vh]"
               style={{ border: `1px solid var(--border)` }}
             />

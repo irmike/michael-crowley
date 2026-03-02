@@ -24,7 +24,7 @@ export default function Home() {
       <section className="mb-12">
         <h2 className="mb-6">Featured Project</h2>
         <div className="app-surface p-6 hover:opacity-90 transition-opacity cursor-pointer">
-          <a href="/projects#arc-stat-tester" className="block">
+          <a href={getPagePath("/projects#arc-stat-tester")} className="block">
             <div className="mb-4 relative w-full aspect-video rounded overflow-hidden">
               <Image
                 src={getImagePath("/home/Arc-Stat-Tester.png")}
