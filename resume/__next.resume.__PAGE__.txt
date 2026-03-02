@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[97367,["/michael-crowley/_next/static/chunks/ff1a16fafef87110.js","/michael-crowley/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+0:{"buildId":"_d3n1yB8yLG6Fm3v8X6e8","rsc":["$","$1","c",{"children":[["$","main",null,{"children":[["$","h1",null,{"children":"Resume"}],["$","p",null,{"children":["You can view my resume below, or"," ",["$","a",null,{"href":"/resume/Resume.pdf","target":"_blank","rel":"noreferrer","children":"open it in a new tab"}],"."]}],["$","div",null,{"children":["$","iframe",null,{"title":"Resume","src":"/resume/Resume.pdf","className":"w-full h-[80vh]","style":{"border":"1px solid var(--border)"}}]}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
+4:null
