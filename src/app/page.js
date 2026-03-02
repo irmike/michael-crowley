@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { getImagePath } from "@/utils/paths";
+import { getImagePath, getPagePath } from "@/utils/paths";
 
 export default function Home() {
   return (
@@ -48,16 +48,16 @@ export default function Home() {
       <section>
         <h2 className="mb-6">Explore More</h2>
         <div className="flex flex-wrap gap-4">
-          <a href="/skills" className="app-button">
+          <a href={getPagePath("/skills")} className="app-button">
             View All Skills
           </a>
-          <a href="/projects" className="app-button">
+          <a href={getPagePath("/projects")} className="app-button">
             All Projects
           </a>
-          <a href="/resume" className="app-button">
+          <a href={getPagePath("/resume")} className="app-button">
             Download Resume
           </a>
-          <a href="/contact" className="app-button">
+          <a href={getPagePath("/contact")} className="app-button">
             Contact Me
           </a>
         </div>
