@@ -1,5 +1,5 @@
 export default function ResumePage() {
-  const resumeUrl = "/michael-crowley/resume/Resume.pdf";
+  const resumeUrl = "/resume/Resume.pdf";
 
   return (
     <main>

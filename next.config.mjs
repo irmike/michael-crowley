@@ -2,8 +2,9 @@
 const nextConfig = {
   output: 'export',
   reactCompiler: true,
-  basePath: '/michael-crowley',
-  assetPrefix: '/michael-crowley/',
+  // Uncomment these for GitHub Pages deployment to /michael-crowley
+  // basePath: '/michael-crowley',
+  // assetPrefix: '/michael-crowley/',
   images: { unoptimized: true },
 };
 

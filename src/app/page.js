@@ -26,7 +26,7 @@ export default function Home() {
           <a href="/projects#arc-stat-tester" className="block">
             <div className="mb-4 relative w-full aspect-video rounded overflow-hidden">
               <Image
-                src="/michael-crowley/home/Arc-Stat-Tester.png"
+                src="/home/Arc-Stat-Tester.png"
                 alt="Arc Raiders Stat Tester"
                 fill
                 className="object-cover"

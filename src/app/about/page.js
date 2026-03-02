@@ -10,7 +10,7 @@ export default function AboutPage() {
       {/* Section 1: Photo + Name + Description */}
       <section className="app-surface p-6 mb-8 flex flex-col md:flex-row items-center gap-6">
         <Image
-          src="/michael-crowley/about/me.jpg"
+          src="/about/me.jpg"
           alt="Profile photo"
           width={128}
           height={128}
