@@ -17,15 +17,14 @@ const SidebarDisplay = ({ items, renderPanel, activeContent, setActiveContent })
     };
 
     return (
-        <section className="flex gap-4 max-h-[calc(100vh-8rem)]">
-            <aside className="app-surface p-3 min-w-48 max-h-full overflow-auto">
+        <section className="flex flex-col sm:flex-row gap-4 max-h-[calc(100vh-8rem)]">
+            <aside className="app-surface p-3 w-full sm:w-1/3 md:w-1/4 min-w-48 max-h-full overflow-auto">
                 <nav aria-label="Sidebar navigation">
-                    <ul className="flex flex-col gap-2">
+                    <ul className="flex flex-row sm:flex-col gap-2 overflow-x-auto">
                         {items.map((item) => {
                             const isActive = item.id === activeContent;
-
                             return (
-                                <li key={item.id}>
+                                <li key={item.id} className="flex-shrink-0 w-auto">
                                     <button
                                         type="button"
                                         onClick={() => setActiveContent(item.id)}
@@ -43,7 +42,6 @@ const SidebarDisplay = ({ items, renderPanel, activeContent, setActiveContent })
                     </ul>
                 </nav>
             </aside>
-
             <div className="app-surface flex-1 p-3 max-h-full overflow-auto">
                 {renderPanel ? renderPanel({ activeContent, openFile }) : null}
 
