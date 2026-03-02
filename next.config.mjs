@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ? '/michael-crowley' : '';
+const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH ? '/michael-crowley/' : '';
+
 const nextConfig = {
   output: 'export',
   reactCompiler: true,
-  // Uncomment these for GitHub Pages deployment to /michael-crowley
-  // basePath: '/michael-crowley',
-  // assetPrefix: '/michael-crowley/',
+  basePath: basePath,
+  assetPrefix: assetPrefix,
   images: { unoptimized: true },
 };
 
