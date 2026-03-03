@@ -11,7 +11,7 @@ export const projectsData = [
         name: "Michael Crowley's Resume Website",
         fileUrl: null,
         info: 'This website! Built with Next.js and Tailwind CSS. Check out the source code on GitHub',
-        sourceCodeUrl: 'https://github.com/irmike/arc-stat-tester'
+        sourceCodeUrl: 'https://github.com/irmike/michael-crowley'
     }
 ];
 // ...existing code...

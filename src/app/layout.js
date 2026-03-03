@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function Header() {
     return (
-        <header className="border-b" style={{ borderColor: "var(--border)" }}>
+        <header className="border-b sticky top-0 z-50 bg-[--surface] backdrop-blur-md bg-opacity-90" style={{ borderColor: "var(--border)" }}>
             <div className="app-container h-16 flex items-center">
                 <nav className="flex w-full items-center justify-between gap-3 overflow-x-auto">
                     <Link href="/" className="text-lg font-bold whitespace-nowrap">
