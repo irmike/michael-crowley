@@ -12,7 +12,8 @@ export const updateData = [
             "Styled Hobby component and favorites list to match app theme",
             "Made navigation header responsive and sticky at top on scroll",
             "Added UpdateLog component to home page displaying recent updates with expandable details",
-            "Updated styling across About page to match global theme and ensure responsive design"
+            "Updated styling across About page to match global theme and ensure responsive design",
+            "Finally did a long overdue update to test to utilize data-testid attributes for easier testing and maintainability"
         ]
     },
     {
