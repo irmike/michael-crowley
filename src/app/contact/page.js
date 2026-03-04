@@ -6,7 +6,6 @@ export default function ContactPage() {
   return (
     <main>
       <h1 className="mb-8">Contact</h1>
-
       <section className="app-surface p-6 max-w-lg mx-auto">
         <ul className="space-y-4">
           <li>

@@ -1,5 +1,22 @@
 export const updateData = [
     {
+        id: 3,
+        title: "Content Expansion",
+        date: "2026-03-03",
+        description: "Filled in real content for About, Projects, and Skills pages; expanded hobbies/interests section with interactive components; made navigation responsive.",
+        details: [
+            "Filled in real content for About, Projects, and Skills pages",
+            "Updated project descriptions and corrected repo/demo URLs",
+            "Created Hobby component for expandable interests & hobbies section on About page",
+            "Implemented image carousel in Hobby component for displaying hobby photos",
+            "Styled Hobby component and favorites list to match app theme",
+            "Made navigation header responsive and sticky at top on scroll",
+            "Added UpdateLog component to home page displaying recent updates with expandable details",
+            "Updated styling across About page to match global theme and ensure responsive design",
+            "Finally did a long overdue update to test to utilize data-testid attributes for easier testing and maintainability"
+        ]
+    },
+    {
         id: 2,
         title: "Mobile Display Fix",
         date: "2026-03-02",
