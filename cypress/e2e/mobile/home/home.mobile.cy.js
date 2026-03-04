@@ -11,12 +11,12 @@ describe('Home Page - Mobile', () => {
 
   it('shows navigation links in the header', () => {
     cy.get('[data-testid="header"]').within(() => {
-      cy.get('[data-testid="header-home-link"]').should('be.visible');
-      cy.get('[data-testid="header-about-link"]').should('be.visible');
-      cy.get('[data-testid="header-contact-link"]').should('be.visible');
-      cy.get('[data-testid="header-skills-link"]').should('be.visible');
-      cy.get('[data-testid="header-projects-link"]').should('be.visible');
-      cy.get('[data-testid="header-resume-link"]').should('be.visible');
+      cy.get('[data-testid="header-home-link"]').scrollIntoView().should('be.visible');
+      cy.get('[data-testid="header-about-link"]').scrollIntoView().should('be.visible');
+      cy.get('[data-testid="header-contact-link"]').scrollIntoView().should('be.visible');
+      cy.get('[data-testid="header-skills-link"]').scrollIntoView().should('be.visible');
+      cy.get('[data-testid="header-projects-link"]').scrollIntoView().should('be.visible');
+      cy.get('[data-testid="header-resume-link"]').scrollIntoView().should('be.visible');
     });
   });
 
