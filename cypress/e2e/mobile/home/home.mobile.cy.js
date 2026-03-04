@@ -5,17 +5,18 @@ describe('Home Page - Mobile', () => {
   });
 
   it('displays the main heading and intro', () => {
-    cy.contains('h1', /welcome|resume|michael crowley/i);
+    cy.get('[data-testid="home-heading"]').should('be.visible');
+    cy.get('[data-testid="home-intro"]').should('be.visible');
   });
 
   it('shows navigation links in the header', () => {
-    cy.get('header').within(() => {
-      cy.contains('Home');
-      cy.contains('About');
-      cy.contains('Contact');
-      cy.contains('Skills');
-      cy.contains('Projects');
-      cy.contains('Resume');
+    cy.get('[data-testid="header"]').within(() => {
+      cy.get('[data-testid="header-home-link"]').should('be.visible');
+      cy.get('[data-testid="header-about-link"]').should('be.visible');
+      cy.get('[data-testid="header-contact-link"]').should('be.visible');
+      cy.get('[data-testid="header-skills-link"]').should('be.visible');
+      cy.get('[data-testid="header-projects-link"]').should('be.visible');
+      cy.get('[data-testid="header-resume-link"]').should('be.visible');
     });
   });
 
@@ -26,4 +27,3 @@ describe('Home Page - Mobile', () => {
     });
   });
 });
-

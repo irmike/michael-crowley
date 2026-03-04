@@ -6,22 +6,23 @@ describe('About Page', () => {
   });
 
   it('displays the About Me section', () => {
-    cy.contains('h1', "About Me").should('be.visible');
-    cy.get('img[alt="Profile photo"]').should('be.visible');
+    cy.get('[data-testid="about-heading"]').should('be.visible');
+    cy.get('[data-testid="about-profile-image"]').should('be.visible');
   });
   
   it('shows the Background section', () => {
-    cy.contains('h2', 'Background').should('be.visible');
-    cy.contains('With a strong foundation in both front-end and back-end technologies').should('be.visible');
+    cy.get('[data-testid="about-background-title"]').should('be.visible');
+    cy.get('[data-testid="about-background-desc1"]').should('be.visible');
   });
 
   it('shows the Interests & Hobbies section', () => {
-    cy.contains('h2', 'Interests & Hobbies').should('be.visible');
+    cy.get('[data-testid="about-hobbies-title"]').should('be.visible');
+    cy.get('[data-testid="about-hobbies-list"]').should('be.visible');
   });
 
   it('expands a hobby disclosure and shows favorites', () => {
-    cy.contains('button', 'Video Games').click();
-    cy.contains('Favorites:').should('be.visible');
-    cy.contains("The Legend of Zelda Majora's mask").should('be.visible');
+    cy.get('[data-testid="hobby-disclosure-button"]').contains('Video Games').click();
+    cy.get('[data-testid="hobby-favorites-title"]').should('be.visible');
+    cy.get('[data-testid="hobby-favorite"]').contains("The Legend of Zelda Majora's mask").should('be.visible');
   });
 });
