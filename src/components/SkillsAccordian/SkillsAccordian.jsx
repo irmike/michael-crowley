@@ -9,10 +9,10 @@ function SkillsAccordian() {
                 const [sectionTitle, skillsByName] = Object.entries(subsection)[0] ?? [];
 
                 return (
-                    <section className="flex flex-col gap-3" key={subSectionIndex}>
-                        <div className="flex items-center gap-3">
+                    <section className="flex flex-col gap-4" key={subSectionIndex}>
+                        <div className="flex flex-col">
                             <h3 className="text-lg font-semibold tracking-wide">{sectionTitle}</h3>
-                            <div className="h-px flex-1" style={{ backgroundColor: "var(--border)" }} />
+                            <div className="h-px w-full mt-1" style={{ backgroundColor: "var(--border)" }} />
                         </div>
 
                         <div className="flex flex-wrap gap-2">
