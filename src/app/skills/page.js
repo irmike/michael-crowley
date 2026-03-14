@@ -4,6 +4,7 @@ import { useState } from "react";
 import SidebarDisplay from "@/components/SidebarDisplay/SidebarDisplay";
 import SkillsAccordian from "@/components/SkillsAccordian/SkillsAccordian";
 import { certificatesData } from "@/data/certificateData";
+import SectionWithHeader from "@/components/common/SectionWithHeader";
 
 
 export default function SkillsPage() {
@@ -21,13 +22,9 @@ export default function SkillsPage() {
         switch (activeContent) {
             case "skills":
                 return (
-                    <div className="flex flex-col gap-4">
-                        <header className="pb-3 border-b" style={{ borderColor: "var(--border)" }}>
-                            <h2 className="text-2xl font-bold">Skills</h2>
-                            <p className="text-sm">Click a skill to see experience details.</p>
-                        </header>
-                        <SkillsAccordian />
-                    </div>
+                    <SectionWithHeader sectionTitle={'Skills'}>
+                        <SkillsAccordian/>
+                    </SectionWithHeader>
                 );
             case "certificates":
                 // Group certificates by category using reduce
@@ -46,14 +43,9 @@ export default function SkillsPage() {
                     ...allCategories.filter(cat => !categoryOrder.includes(cat))
                 ];
                 return (
-                    <div className="flex flex-col gap-4">
-                        <header className="pb-3 border-b" style={{ borderColor: "var(--border)" }}>
-                            <h2 className="text-2xl font-bold">Certificates</h2>
-                            <p className="text-sm">Click a certificate to preview the PDF.</p>
-                        </header>
+                    <SectionWithHeader sectionTitle={'Categories'}>
                         {sortedCategories.map(category => (
-                            <div key={category} className="mb-4">
-                                <h3 className="text-lg font-semibold mb-2">{category}</h3>
+                            <SectionWithHeader key={category} sectionTitle={category}>
                                 <ul className="flex flex-col gap-2">
                                     {groupedCertificates[category].map((cert) => (
                                         <li key={cert.id}>
@@ -67,9 +59,9 @@ export default function SkillsPage() {
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </SectionWithHeader>
                         ))}
-                    </div>
+                    </SectionWithHeader>
                 );
             default:
                 return <div>Select an item from the sidebar</div>;

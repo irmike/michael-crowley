@@ -1,5 +1,6 @@
-import { Disclosure } from "@headlessui/react";
-import { skillsData } from "@/data/skillsData.js";
+import {Disclosure} from "@headlessui/react";
+import {skillsData} from "@/data/skillsData.js";
+import SectionWithHeader from "@/components/common/SectionWithHeader";
 
 function SkillsAccordian() {
     return (
@@ -9,17 +10,12 @@ function SkillsAccordian() {
                 const [sectionTitle, skillsByName] = Object.entries(subsection)[0] ?? [];
 
                 return (
-                    <section className="flex flex-col gap-4" key={subSectionIndex}>
-                        <div className="flex flex-col">
-                            <h3 className="text-lg font-semibold tracking-wide">{sectionTitle}</h3>
-                            <div className="h-px w-full mt-1" style={{ backgroundColor: "var(--border)" }} />
-                        </div>
-
+                    <SectionWithHeader key={subSectionIndex} sectionTitle={sectionTitle}>
                         <div className="flex flex-wrap gap-2">
                             {skillsByName &&
                                 Object.entries(skillsByName).map(([skillName, experience]) => (
                                     <Disclosure key={skillName}>
-                                        {({ open }) => (
+                                        {({open}) => (
                                             <div className="relative">
                                                 <Disclosure.Button
                                                     className={
@@ -39,7 +35,7 @@ function SkillsAccordian() {
                                     </Disclosure>
                                 ))}
                         </div>
-                    </section>
+                    </SectionWithHeader>
                 );
             })}
         </div>
