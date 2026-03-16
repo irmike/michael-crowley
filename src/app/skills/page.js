@@ -1,25 +1,27 @@
 "use client";
 
-import { useState } from "react";
-import { groupAndSortCertificates } from "@/utils/certificates";
+import {useState} from "react";
+import {groupAndSortCertificates} from "@/utils/certificates";
 import SidebarDisplay from "@/components/SidebarDisplay/SidebarDisplay";
 import SkillsAccordian from "@/components/SkillsAccordian/SkillsAccordian";
-import { certificatesData } from "@/data/certificateData";
+import {certificatesData} from "@/data/certificateData";
 import SectionWithHeader from "@/components/common/SectionWithHeader";
 
 
 export default function SkillsPage() {
 
     const [activeContent, setActiveContent] = useState("skills");
-
-    const navigationItems = [
-        { id: "skills", label: "Skills" },
-        { id: "certificates", label: "Certificates" },
-    ];
     
+    // Eventually this can be moved to a helper class. Right now the page structure isn't set in stone so until then
+    // it's easier to adjust here.
+    const navigationItems = [
+        {id: "skills", label: "Skills"},
+        {id: "certificates", label: "Certificates"},
+    ];
+
     const categoryOrder = ["Professional", "LinkedIn Learning"];
 
-    const renderPanel = ({ activeContent, openFile }) => {
+    const renderPanel = ({activeContent, openFile}) => {
         switch (activeContent) {
             case "skills":
                 return (
@@ -28,11 +30,12 @@ export default function SkillsPage() {
                     </div>
                 );
             case "certificates":
-                const { groupedCertificates, sortedCategories } = groupAndSortCertificates(certificatesData, categoryOrder);
+                const {groupedCertificates, sortedCategories} = 
+                    groupAndSortCertificates(certificatesData, categoryOrder);
                 return (
                     <div data-testid="certificates-section">
                         {sortedCategories.map(category => (
-                            <SectionWithHeader key={category} sectionTitle={category} data-testid={`certificates-category-${category}`}>
+                            <SectionWithHeader key={category} sectionTitle={category}>
                                 <div className="flex flex-wrap gap-2 items-start">
                                     {groupedCertificates[category].map((cert) => (
                                         <button
@@ -55,16 +58,15 @@ export default function SkillsPage() {
         }
     };
 
-  return (
-    <main data-testid="skills-page">
-      <h1 data-testid="skills-page-title">Skills / Tech Stack</h1>
-      <SidebarDisplay
-        items={navigationItems}
-        renderPanel={renderPanel}
-        activeContent={activeContent}
-        setActiveContent={setActiveContent}
-        data-testid="sidebar-display"
-      />
-    </main>
-  );
+    return (
+        <main data-testid="skills-page">
+            <h1 data-testid="skills-page-title">Skills / Tech Stack</h1>
+            <SidebarDisplay
+                items={navigationItems}
+                renderPanel={renderPanel}
+                activeContent={activeContent}
+                setActiveContent={setActiveContent}
+            />
+        </main>
+    );
 }
