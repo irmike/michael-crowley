@@ -2,7 +2,6 @@ import FileModal from '../FileModal/FileModal';
 import { useState } from "react";
 
 const SidebarDisplay = ({ items, renderPanel, activeContent, setActiveContent }) => {
-
     // Track which file is selected and whether the modal is open.
     const [selectedFile, setSelectedFile] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,14 +16,17 @@ const SidebarDisplay = ({ items, renderPanel, activeContent, setActiveContent })
     };
 
     return (
-        <section className="flex flex-col sm:flex-row gap-4 max-h-[calc(100vh-8rem)]">
+        <section
+            className="flex flex-col sm:flex-row gap-4 max-h-[calc(100vh-8rem)]"
+            data-testid={ "sidebar-display" }
+        >
             <aside className="app-surface p-3 w-full sm:w-1/3 md:w-1/4 min-w-48 max-h-full">
                 <nav aria-label="Sidebar navigation">
                     <ul className="flex flex-wrap sm:flex-col gap-2">
                         {items.map((item) => {
                             const isActive = item.id === activeContent;
                             return (
-                                <li key={item.id} className="flex-shrink-0 w-auto">
+                                <li key={item.id} className="shrink-0 w-auto">
                                     <button
                                         type="button"
                                         onClick={() => setActiveContent(item.id)}
@@ -33,6 +35,7 @@ const SidebarDisplay = ({ items, renderPanel, activeContent, setActiveContent })
                                             (isActive ? "app-button--active" : "")
                                         }
                                         aria-current={isActive ? "page" : undefined}
+                                        data-testid={`sidebar-nav-button-${item.id}`}
                                     >
                                         {item.label}
                                     </button>

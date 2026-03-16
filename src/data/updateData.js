@@ -42,5 +42,19 @@ export const updateData = [
             "Designed a clean and modern UI with Tailwind CSS", 
             "Only added bare minimum content to get the site live, with plans to expand and refine over time"
         ]
+    },
+    {
+        id: 4,
+        title: "Section Header Refactor for Skills Page",
+        date: "2026-03-16",
+        description: "Standardized section headers across SkillsAccordian and related components using SectionWithHeader, improving code reuse and visual consistency.",
+        details: [
+            "Create SectionWithHeader component for reusable section header + divider",
+            "Refactor SkillsAccordian to use SectionWithHeader for each skill category",
+            "Update styling and layout to match global theme and ensure responsive design",
+            "Added more Certificates",
+            "Updated Certificates Display to group by category (added category field to certificateData)",
+            "Added desktop and mobile Cypress tests for Skills page (desktop: open each accordion, verify content; mobile: verify accordion functionality and responsive layout)"
+        ]
     }
 ];

@@ -5,7 +5,6 @@ const FileModal = ({ isOpen, onClose, file }) => {
     if (!isOpen || !file) return null;
 
     const handleOpenInNewTab = () => {
-        // Open the file URL in a new tab (from there, the user can download if they want).
         window.open(getImagePath(file.fileUrl), '_blank', 'noopener,noreferrer');
     };
 
@@ -15,15 +14,15 @@ const FileModal = ({ isOpen, onClose, file }) => {
     const isPdf = fileUrl.toLowerCase().endsWith('.pdf');
 
     return (
-        <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black flex items-center justify-center z-50" data-testid="file-modal">
             <div className="app-surface-strong w-full max-w-3xl max-h-[80vh] flex flex-col shadow-2xl" style={{ background: 'rgba(24, 24, 27, 0.98)' }}>
                 <div className="p-4 border-b flex justify-between items-center" style={{ borderColor: "var(--border)" }}>
-                    <h3 className="font-semibold text-lg">{file.name}</h3>
-                    <button type="button" onClick={onClose} className={closeButtonClassName}>
+                    <h3 className="font-semibold text-lg" data-testid="file-modal-title">{file.name}</h3>
+                    <button type="button" onClick={onClose} className={closeButtonClassName} data-testid="file-modal-close">
                         Close
                     </button>
                 </div>
-                <div className="flex-1 overflow-auto p-4">
+                <div className="flex-1 overflow-auto p-4" data-testid="file-modal-content">
                     {isPdf ? (
                         <PDFViewer url={fileUrl} className="w-full h-[60vh]" style={{ border: `1px solid var(--border)` }} />
                     ) : (
@@ -36,7 +35,7 @@ const FileModal = ({ isOpen, onClose, file }) => {
                     )}
                 </div>
                 <div className="p-4 border-t flex justify-end gap-2" style={{ borderColor: "var(--border)" }}>
-                    <button type="button" onClick={handleOpenInNewTab} className="app-button">
+                    <button type="button" onClick={handleOpenInNewTab} className="app-button" data-testid="file-modal-open-new-tab">
                         Open in new tab
                     </button>
                 </div>
