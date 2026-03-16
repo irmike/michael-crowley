@@ -4,30 +4,33 @@ import SectionWithHeader from "@/components/common/SectionWithHeader";
 
 function SkillsAccordian() {
     return (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8" data-testid="skills-accordian">
             {skillsData.map((subsection, subSectionIndex) => {
-                // Each subsection is an object with a single key, e.g. { "Languages": { ...skills } }
                 const [sectionTitle, skillsByName] = Object.entries(subsection)[0] ?? [];
 
                 return (
-                    <SectionWithHeader key={subSectionIndex} sectionTitle={sectionTitle}>
-                        <div className="flex flex-wrap gap-2">
+                    <SectionWithHeader
+                        key={subSectionIndex}
+                        sectionTitle={sectionTitle}
+                    >
+                        <div className="flex flex-wrap gap-2" data-testid={`skills-accordian-section-skills-${sectionTitle}`}>
                             {skillsByName &&
                                 Object.entries(skillsByName).map(([skillName, experience]) => (
                                     <Disclosure key={skillName}>
-                                        {({open}) => (
-                                            <div className="relative">
+                                        {({ open }) => (
+                                            <div className="relative" data-testid={`skill-disclosure-${skillName}`}> 
                                                 <Disclosure.Button
                                                     className={
                                                         "app-button text-sm px-3 py-1.5 " +
                                                         (open ? "app-button--active" : "")
                                                     }
+                                                    data-testid={`skill-button-${skillName}`}
                                                 >
                                                     <span>{skillName}</span>
                                                     <span className="ml-2 opacity-80">{open ? "-" : "+"}</span>
                                                 </Disclosure.Button>
 
-                                                <Disclosure.Panel className="mt-2 app-surface p-3 text-sm">
+                                                <Disclosure.Panel className="mt-2 app-surface p-3 text-sm" data-testid={`skill-panel-${skillName}`}>
                                                     {experience}
                                                 </Disclosure.Panel>
                                             </div>

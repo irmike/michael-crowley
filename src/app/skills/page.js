@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { groupAndSortCertificates } from "@/utils/certificates";
 import SidebarDisplay from "@/components/SidebarDisplay/SidebarDisplay";
 import SkillsAccordian from "@/components/SkillsAccordian/SkillsAccordian";
 import { certificatesData } from "@/data/certificateData";
@@ -22,60 +23,47 @@ export default function SkillsPage() {
         switch (activeContent) {
             case "skills":
                 return (
-                    <SectionWithHeader sectionTitle={'Skills'}>
+                    <div data-testid={'skills-section'}>
                         <SkillsAccordian/>
-                    </SectionWithHeader>
+                    </div>
                 );
             case "certificates":
-                // Group certificates by category using reduce
-                const groupedCertificates = certificatesData.reduce((acc, cert) => {
-                    acc[cert.category] = acc[cert.category] || [];
-                    acc[cert.category].push(cert);
-                    return acc;
-                }, {});
-                
-                const allCategories = Object.keys(groupedCertificates);
-                // This could be done 'easier' by separating the certificatesData into key value pairs with 
-                // category as the key and a list of certificates as the value, but I wanted to showcase the 
-                // reduce method here since it's a common way to group data in JavaScript.
-                const sortedCategories = [
-                    ...categoryOrder.filter(cat => allCategories.includes(cat)),
-                    ...allCategories.filter(cat => !categoryOrder.includes(cat))
-                ];
+                const { groupedCertificates, sortedCategories } = groupAndSortCertificates(certificatesData, categoryOrder);
                 return (
-                    <SectionWithHeader sectionTitle={'Categories'}>
+                    <div data-testid="certificates-section">
                         {sortedCategories.map(category => (
-                            <SectionWithHeader key={category} sectionTitle={category}>
-                                <ul className="flex flex-col gap-2">
+                            <SectionWithHeader key={category} sectionTitle={category} data-testid={`certificates-category-${category}`}>
+                                <div className="flex flex-wrap gap-2 items-start">
                                     {groupedCertificates[category].map((cert) => (
-                                        <li key={cert.id}>
-                                            <button
-                                                type="button"
-                                                onClick={() => openFile(cert)}
-                                                className="app-button w-full justify-start"
-                                            >
-                                                {cert.name}
-                                            </button>
-                                        </li>
+                                        <button
+                                            key={cert.id}
+                                            type="button"
+                                            onClick={() => openFile(cert)}
+                                            className="app-button justify-start"
+                                            data-testid={`certificate-button-${cert.id}`}
+                                        >
+                                            {cert.name}
+                                        </button>
                                     ))}
-                                </ul>
+                                </div>
                             </SectionWithHeader>
                         ))}
-                    </SectionWithHeader>
+                    </div>
                 );
             default:
-                return <div>Select an item from the sidebar</div>;
+                return <div data-testid="skills-page-default">Select an item from the sidebar</div>;
         }
     };
 
   return (
-    <main>
-      <h1>Skills / Tech Stack</h1>
+    <main data-testid="skills-page">
+      <h1 data-testid="skills-page-title">Skills / Tech Stack</h1>
       <SidebarDisplay
         items={navigationItems}
         renderPanel={renderPanel}
         activeContent={activeContent}
         setActiveContent={setActiveContent}
+        data-testid="sidebar-display"
       />
     </main>
   );
