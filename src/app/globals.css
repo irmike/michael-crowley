@@ -43,12 +43,14 @@ h1 {
   font-size: 1.875rem; /* text-3xl */
   line-height: 2.25rem;
   font-weight: 700;
+  color: var(--accent);
 }
 
 h2 {
   font-size: 1.25rem; /* text-xl */
   line-height: 1.75rem;
   font-weight: 600;
+  color: var(--accent);
 }
 
 p {

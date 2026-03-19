@@ -12,6 +12,7 @@ function SkillsAccordian() {
                     <SectionWithHeader
                         key={subSectionIndex}
                         sectionTitle={sectionTitle}
+                        showDivider={true}
                     >
                         <div className="flex flex-wrap gap-2" data-testid={`skills-accordian-section-skills-${sectionTitle}`}>
                             {skillsByName &&

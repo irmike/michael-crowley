@@ -35,7 +35,7 @@ export default function SkillsPage() {
                 return (
                     <div data-testid="certificates-section">
                         {sortedCategories.map(category => (
-                            <SectionWithHeader key={category} sectionTitle={category}>
+                            <SectionWithHeader key={category} sectionTitle={category} showDivider={true}>
                                 <div className="flex flex-wrap gap-2 items-start">
                                     {groupedCertificates[category].map((cert) => (
                                         <button

@@ -7,16 +7,18 @@ import UpdateLog from '@/components/UpdateLog/UpdateLog';
 export default function Home() {
   return (
     <main data-testid="home-main">
+      {/* SWH Candidate */}
       <section className="mb-12" data-testid="home-welcome-section">
         <h1 className="mb-2" data-testid="home-heading">Welcome, I'm Michael!</h1>
         <p className="text-lg" data-testid="home-intro">Full Stack Developer | Test Automation Specialist | Problem Solver | Nerd</p>
       </section>
 
+      {/* SWH Candidate */}
       <section className="mb-8" data-testid="home-featured-section">
         <h2 className="mb-4 text-lg font-semibold" data-testid="home-featured-title">Featured Project</h2>
         <div className="app-surface p-3 hover:opacity-90 transition-opacity cursor-pointer">
           <a href={getPagePath("/projects#arc-stat-tester")} className="block" data-testid="home-featured-link">
-            <div className="mb-3 mx-auto relative w-full max-w-xs aspect-[3/2] rounded overflow-hidden border-4 border-black" data-testid="home-featured-image-container">
+            <div className="mb-3 mx-auto relative w-full max-w-xs aspect-3/2 rounded overflow-hidden border-4 border-black" data-testid="home-featured-image-container">
               <Image
                 src={getImagePath("/home/Arc-Stat-Tester.png")}
                 alt="Arc Raiders Stat Tester"
@@ -37,6 +39,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SWH Candidate */}
       <section className="mb-12 app-surface p-6" data-testid="home-about-section">
         <h2 className="mb-4" data-testid="home-about-title">About This Site</h2>
         <p className="mb-3" data-testid="home-about-desc">
@@ -47,10 +50,12 @@ export default function Home() {
         </p>
       </section>
 
+      {/* SWH Candidate */}
       <section className="mb-12" data-testid="home-updatelog-section">
         <UpdateLog />
       </section>
 
+      {/* SWH Candidate */}
       <section data-testid="home-explore-section">
         <h2 className="mb-6" data-testid="home-explore-title">Explore More</h2>
         <div className="flex flex-wrap gap-4" data-testid="home-explore-links">

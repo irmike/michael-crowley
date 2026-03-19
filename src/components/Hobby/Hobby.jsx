@@ -29,7 +29,7 @@ function Hobby({ hobby }) {
                     type="button"
                     onClick={handlePrev}
                     aria-label="Previous image"
-                    className="h-12 w-12 flex items-center justify-center text-3xl cursor-pointer bg-white/80 hover:bg-orange-400/60 transition-colors rounded-full border border-[--border] text-black hover:text-orange-600"
+                    className="h-12 w-12 flex items-center justify-center text-3xl cursor-pointer bg-white/80 hover:bg-orange-400/60 transition-colors rounded-full border border-(--border) text-black hover:text-orange-600"
                     data-testid="hobby-carousel-prev"
                 >
                     ◀
@@ -45,7 +45,7 @@ function Hobby({ hobby }) {
                     type="button"
                     onClick={handleNext}
                     aria-label="Next image"
-                    className="h-12 w-12 flex items-center justify-center text-3xl cursor-pointer bg-white/80 hover:bg-orange-400/60 transition-colors rounded-full border border-[--border] text-black hover:text-orange-600"
+                    className="h-12 w-12 flex items-center justify-center text-3xl cursor-pointer bg-white/80 hover:bg-orange-400/60 transition-colors rounded-full border border-(--border) text-black hover:text-orange-600"
                     data-testid="hobby-carousel-next"
                 >
                     ▶
@@ -58,9 +58,9 @@ function Hobby({ hobby }) {
         <div className="flex flex-row gap-4" data-testid="hobby-container">
             <Disclosure>
                 {({ open }) => (
-                    <div className="app-surface rounded-xl p-4 w-full" data-testid="hobby-disclosure">
+                    <div className="app-surface p-4 w-full" data-testid="hobby-disclosure">
                         <Disclosure.Button 
-                          className="text-xl font-bold px-0 py-1 cursor-pointer flex items-center gap-2 text-[--accent] hover:text-[--accent-strong] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-strong" 
+                          className="text-xl font-bold px-0 py-1 cursor-pointer flex items-center gap-2 text-(--accent) hover:text-(--accent-strong) focus-visible:outline-2" 
                           data-testid="hobby-disclosure-button"
                         >
                             {title}
@@ -69,15 +69,15 @@ function Hobby({ hobby }) {
                         <Disclosure.Panel data-testid="hobby-disclosure-panel">
                             <div className="flex flex-col md:flex-row md:items-start gap-4 mt-2" data-testid="hobby-content">
                                 <div className="flex-1" data-testid="hobby-description-container">
-                                    <p className="text-base mt-2 text-[--muted]" data-testid="hobby-description">{description}</p>
+                                    <p className="text-base mt-2" data-testid="hobby-description">{description}</p>
                                     {favorites && favorites.length > 0 && (
                                         <div data-testid="hobby-favorites-container">
-                                            <h4 className="font-semibold mt-2 text-[--accent]" data-testid="hobby-favorites-title">Favorites:</h4>
+                                            <h4 className="font-semibold mt-2 text-(--accent)" data-testid="hobby-favorites-title">Favorites:</h4>
                                             <div className="flex flex-wrap gap-2 mt-2" data-testid="hobby-favorites-list">
                                                 {favorites.map((fav, idx) => (
                                                     <span
                                                         key={idx}
-                                                        className="inline-block bg-[--surface] border border-[--border] rounded-lg px-3 py-1 text-sm text-[--accent] shadow-sm"
+                                                        className="inline-block bg-(--surface) border border-(--border) rounded-lg px-3 py-1 text-sm text-(--accent) shadow-sm"
                                                         data-testid="hobby-favorite"
                                                     >
                                                         {fav}

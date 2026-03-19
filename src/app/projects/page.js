@@ -20,6 +20,7 @@ export default function ProjectsPage() {
       return <div>Select a project</div>;
     }
 
+    // SWH Candidate
     return (
       <div className="flex flex-col gap-3">
         <h2>{project.name}</h2>

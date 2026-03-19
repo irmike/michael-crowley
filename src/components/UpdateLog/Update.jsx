@@ -4,7 +4,7 @@ export default function Update({ update }) {
   return (
     <Disclosure>
       {({ open }) => (
-        <div className="border border-[--border] rounded bg-white/20 mb-1 p-2" data-testid="update-container">
+        <div className="border border-(--border) rounded bg-white/20 mb-1 p-2" data-testid="update-container">
           <Disclosure.Button
             className="flex flex-col items-start w-full text-left py-1 px-2 rounded bg-transparent hover:bg-white/30 transition"
             data-testid="update-disclosure-button"
