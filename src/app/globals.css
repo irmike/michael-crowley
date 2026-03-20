@@ -63,6 +63,27 @@ p {
   .app-container {
     width: 100%;
     max-width: 56rem; /* ~max-w-4xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .app-main {
+    width: 100%;
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .app-surface {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
   }
   
   .app-inv-surface-base {
