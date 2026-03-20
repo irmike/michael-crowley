@@ -1,5 +1,21 @@
 export const updateData = [
     {
+        id: 5,
+        title: "Sitewide Styling Cleanup",
+        date: "2026-03-20",
+        description: "Expanded SectionWithHeader variants for broader page use, standardized page-title patterns, and simplified UpdateLog/Update inverted styling while preserving the intended visual hierarchy.",
+        details: [
+            "Added and refined SectionWithHeader variants to support reusable patterns (including page title and surface-focused variants)",
+            "Applied the new page-title usage pattern across pages to improve consistency of heading structure",
+            "Reviewed remaining SWH Candidate sections and converted the strongest matches to shared variants where appropriate",
+            "Fixed SectionWithHeader runtime issues caused by dynamic container/tag handling and fragment edge cases",
+            "Standardized UpdateLog and Update disclosure/button structure to reduce repeated className complexity",
+            "Introduced and iterated on inverted surface globals (including app-inv-surface-base) to centralize repeated styling",
+            "Diagnosed and corrected heading/text and border-color conflicts while preserving rounded card appearance",
+            "Kept UpdateLog visuals aligned with the intended inverted theme (black text plus layered orange-tinted surfaces) after refactor attempts"
+        ]
+    },
+    {
         id: 3,
         title: "Content Expansion",
         date: "2026-03-03",

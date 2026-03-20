@@ -5,7 +5,7 @@ const MOBILE_HEADER_LINK_TEXT_SIZE = "text-[13px]";
 
 function Header() {
     return (
-        <header className="border-b sticky top-0 z-50 bg-[--surface] backdrop-blur-md"
+        <header className="border-b sticky top-0 z-50 bg-(--surface) backdrop-blur-md"
                 style={{borderColor: "var(--border)"}} data-testid="header">
             <div className="app-container h-16 flex items-center" data-testid="header-container">
                 <nav className="flex w-full items-center justify-between gap-3 overflow-x-auto"
@@ -40,7 +40,7 @@ export default function RootLayout({children}) {
         <html lang="en">
         <body>
         <Header/>
-        <div className="app-main">{children}</div>
+        <main className="app-main">{children}</main>
         </body>
         </html>
     );

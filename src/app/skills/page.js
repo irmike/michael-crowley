@@ -33,9 +33,9 @@ export default function SkillsPage() {
                 const {groupedCertificates, sortedCategories} = 
                     groupAndSortCertificates(certificatesData, categoryOrder);
                 return (
-                    <div data-testid="certificates-section">
+                    <div className="flex flex-col gap-4" data-testid="certificates-section">
                         {sortedCategories.map(category => (
-                            <SectionWithHeader key={category} sectionTitle={category}>
+                            <SectionWithHeader key={category} sectionTitle={category} showDivider={true} variant={"standard"}>
                                 <div className="flex flex-wrap gap-2 items-start">
                                     {groupedCertificates[category].map((cert) => (
                                         <button
@@ -59,14 +59,14 @@ export default function SkillsPage() {
     };
 
     return (
-        <main data-testid="skills-page">
-            <h1 data-testid="skills-page-title">Skills / Tech Stack</h1>
+        
+        <SectionWithHeader sectionTitle={"Skills / Tech Stack"} variant={"pageTitle"}>
             <SidebarDisplay
                 items={navigationItems}
                 renderPanel={renderPanel}
                 activeContent={activeContent}
                 setActiveContent={setActiveContent}
             />
-        </main>
+        </SectionWithHeader>
     );
 }
