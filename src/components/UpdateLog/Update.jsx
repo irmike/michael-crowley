@@ -4,32 +4,33 @@ export default function Update({ update }) {
   return (
     <Disclosure>
       {({ open }) => (
-        <div className="border border-(--border) rounded bg-white/20 mb-1 p-2" data-testid="update-container">
+        <section
+          className="border rounded bg-white/20 mb-1 p-2"
+          data-testid="update-container"
+        >
           <Disclosure.Button
-            className="flex flex-col items-start w-full text-left py-1 px-2 rounded bg-transparent hover:bg-white/30 transition"
+            className="app-inv-disclosure-btn hover:bg-white/30"
             data-testid="update-disclosure-button"
           >
-            <div className="flex items-center justify-between w-full" data-testid="update-header">
-              <div>
-                <span className="font-semibold text-base" data-testid="update-title">{update.title}</span>
-                <span className="ml-2 text-xs text-[#111827]" data-testid="update-date">{update.date}</span>
-              </div>
-              <span className="ml-2 text-accent font-semibold" data-testid="update-expand-toggle">{open ? 'hide' : 'expand'}</span>
+            <div className="flex flex-wrap items-baseline gap-x-2 min-w-0">
+              <span className="font-semibold text-base app-inv-text" data-testid="update-title">{update.title}</span>
+              <span className="text-xs app-inv-text whitespace-nowrap" data-testid="update-date">{update.date}</span>
             </div>
-            {update.description && (
-              <div className="mb-2 px-2 py-1 font-semibold italic bg-white/30 rounded text-[#111827]" data-testid="update-description">
-                {update.description}
-              </div>
-            )}
+            <span className="ml-2 font-semibold app-inv-text" data-testid="update-expand-toggle">{open ? 'hide' : 'expand'}</span>
           </Disclosure.Button>
+          {update.description && (
+            <section className="mb-2 px-2 py-1 font-semibold italic bg-white/30 rounded app-inv-text" data-testid="update-description">
+              {update.description}
+            </section>
+          )}
           <Disclosure.Panel className="mt-1 text-sm" data-testid="update-details-panel">
-            <ul className="list-disc list-inside text-[#111827]" data-testid="update-details-list">
+            <ul className="list-disc list-inside" data-testid="update-details-list">
               {update.details.map((detail, idx) => (
-                <li key={idx} className="mb-0.5" data-testid={`update-detail-${idx}`}>{detail}</li>
+                <li key={idx} className="mb-0.5 app-inv-text" data-testid={`update-detail-${idx}`}>{detail}</li>
               ))}
             </ul>
           </Disclosure.Panel>
-        </div>
+        </section>
       )}
     </Disclosure>
   );

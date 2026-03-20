@@ -5,7 +5,7 @@ describe('Skills Page - Desktop', () => {
   });
 
   it('should display the main title', () => {
-    cy.get('[data-testid="skills-page-title"]').should('contain', 'Skills / Tech Stack');
+    cy.get('[data-testid="skills--tech-stack-title"]').should('contain', 'Skills / Tech Stack');
   });
 
   it('should display sidebar navigation items', () => {

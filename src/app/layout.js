@@ -40,7 +40,7 @@ export default function RootLayout({children}) {
         <html lang="en">
         <body>
         <Header/>
-        <div className="app-main">{children}</div>
+        <main className="app-main">{children}</main>
         </body>
         </html>
     );

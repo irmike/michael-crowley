@@ -1,25 +1,65 @@
+import { Fragment } from "react";
 import {kebabify} from "@/utils/kebabify";
 
-const SectionWithHeader = ({ children, sectionTitle, showDivider = false }) => {
+/**
+ * @typedef {'pageTitle' | 'standard' | 'surfaceContent' | 'invertedSurfaceContent'} VariantType
+ */
+
+const SectionWithHeader = ({ children, sectionTitle, showDivider = false, variant = "standard"}) => {
     
-    const sectionClassName = "flex flex-col gap-4";
-    const headerClassName = "flex flex-col gap-1";
-    const h3ClassName = "text-2xl font-bold text-(--accent)";
+    const variantStyles = {
+        pageTitle: {
+            outerTag: "fragment",
+            outerClass: "",
+            innerTag: "h1",
+            innerClass: "mb-2",
+        },
+        standard: {
+            outerTag: "section",
+            outerClass: "flex flex-col gap-1",
+            innerTag: "h2",
+            innerClass: "mb-1",
+        },
+        surfaceContent: {
+            outerTag: "section",
+            outerClass: "app-surface p-6 mb-8",
+            innerTag: "h2",
+            innerClass: "mb-4",
+        },
+        invertedSurfaceContent: {
+            outerTag: "section",
+            outerClass: "app-inv-surface-base",
+            innerTag: "h2",
+            innerClass: "inv-h2"
+        }
+    }
+
+    const selectedVariant = variantStyles[variant] || variantStyles.standard;
+    const isFragment = selectedVariant.outerTag === "fragment";
+    const ContainerOuter = isFragment ? Fragment : selectedVariant.outerTag;
+    const ContainerInner = selectedVariant.innerTag;
+    
     const normalizedTitle = kebabify(sectionTitle);
+
+    const containerOuterProps = isFragment
+        ? {}
+        : {
+            className: selectedVariant.outerClass,
+            "data-testid": `${normalizedTitle}-section`,
+        };
     
     return (
-        <section className={sectionClassName} data-testid={`${normalizedTitle}-section`}>
-            <header className={headerClassName} data-testid={`header-${normalizedTitle}`}>
-                <h3 className={h3ClassName}>{sectionTitle}</h3>
+        <ContainerOuter {...containerOuterProps}>
+                <ContainerInner className={selectedVariant.innerClass} data-testid={`${normalizedTitle}-title`}>{sectionTitle}</ContainerInner>
                 {showDivider && (
                     <div
-                        className="h-px w-full mt-1"
+                        className="h-px w-full mb-2"
                         style={{ backgroundColor: "var(--border)" }}
                     />
                 )}
-            </header>
+            
             {children}
-        </section>
+        </ContainerOuter>
     )
 }
 

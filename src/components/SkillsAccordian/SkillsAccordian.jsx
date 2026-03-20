@@ -4,7 +4,7 @@ import SectionWithHeader from "@/components/common/SectionWithHeader";
 
 function SkillsAccordian() {
     return (
-        <div className="flex flex-col gap-8" data-testid="skills-accordian">
+        <div className="flex flex-col gap-4" data-testid="skills-accordian">
             {skillsData.map((subsection, subSectionIndex) => {
                 const [sectionTitle, skillsByName] = Object.entries(subsection)[0] ?? [];
 
@@ -13,6 +13,7 @@ function SkillsAccordian() {
                         key={subSectionIndex}
                         sectionTitle={sectionTitle}
                         showDivider={true}
+                        variant={"standard"}
                     >
                         <div className="flex flex-wrap gap-2" data-testid={`skills-accordian-section-skills-${sectionTitle}`}>
                             {skillsByName &&
