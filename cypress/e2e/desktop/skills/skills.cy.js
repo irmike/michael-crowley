@@ -14,10 +14,10 @@ describe('Skills Page - Desktop', () => {
     cy.get('[data-testid="sidebar-display"]').contains('Certificates').should('exist');
   });
 
-  it('should render the skills section and accordian', () => {
+  it('should render the skills section and accordion', () => {
     cy.get('[data-testid="skills-section"]').should('exist');
-    cy.get('[data-testid="skills-accordian"]').should('exist');
-    cy.get('[data-testid^="skills-accordian-section-"]').should('have.length.greaterThan', 0);
+    cy.get('[data-testid="skills-accordion"]').should('exist');
+    cy.get('[data-testid^="skills-accordion-section-"]').should('have.length.greaterThan', 0);
     cy.get('[data-testid^="skill-button-"]').should('have.length.greaterThan', 0);
   });
 

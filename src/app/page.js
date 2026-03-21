@@ -7,43 +7,37 @@ import SectionWithHeader from "@/components/common/SectionWithHeader";
 
 export default function Home() {
     return (
-        <>
-            {/* SWH Candidate */}
-            <section className="mb-12" data-testid="home-welcome-section">
-                <h1 className="mb-2" data-testid="home-heading">Welcome, I'm Michael!</h1>
-                <p className="text-lg" data-testid="home-intro">Full Stack Developer | Test Automation Specialist |
-                    Problem Solver | Nerd</p>
+        <SectionWithHeader sectionTitle="Welcome, I'm Michael!" variant="pageTitle">
+            <p className="text-lg mb-12" data-testid="home-intro">Full Stack Developer | Test Automation Specialist |
+                Problem Solver | Nerd</p>
+
+            <h2 className="mb-4 app-text-accent" data-testid="home-featured-title">Featured Project</h2>
+            <section className="app-surface p-3 mb-8">
+                <a href={getPagePath("/projects#arc-stat-tester")} className="block"
+                   data-testid="home-featured-link">
+                    <section
+                        className="mb-3 mx-auto relative w-full max-w-xs aspect-3/2 rounded overflow-hidden border-4 border-black"
+                        data-testid="home-featured-image-container">
+                        <Image
+                            src={getImagePath("/home/Arc-Stat-Tester.png")}
+                            alt="Arc Raiders Stat Tester"
+                            fill
+                            className="object-cover"
+                            priority
+                            data-testid="home-featured-image"
+                        />
+                    </section>
+                    <h3 className="font-semibold mb-1 text-base" data-testid="home-featured-project-title">Arc
+                        Raiders Stat Tester</h3>
+                    <p className="text-sm mb-2" data-testid="home-featured-project-desc">
+                        A stat tester I created for the game Arc Raiders. Built using React and Vite.
+                    </p>
+                    <p className="text-xs" data-testid="home-featured-project-cta">
+                        View Project →
+                    </p>
+                </a>
             </section>
 
-            {/* SWH Candidate */}
-            <section className="mb-8" data-testid="home-featured-section">
-                <h2 className="mb-4" data-testid="home-featured-title">Featured Project</h2>
-                <div className="app-surface p-3 hover:opacity-90 transition-opacity cursor-pointer">
-                    <a href={getPagePath("/projects#arc-stat-tester")} className="block"
-                       data-testid="home-featured-link">
-                        <div
-                            className="mb-3 mx-auto relative w-full max-w-xs aspect-3/2 rounded overflow-hidden border-4 border-black"
-                            data-testid="home-featured-image-container">
-                            <Image
-                                src={getImagePath("/home/Arc-Stat-Tester.png")}
-                                alt="Arc Raiders Stat Tester"
-                                fill
-                                className="object-cover"
-                                priority
-                                data-testid="home-featured-image"
-                            />
-                        </div>
-                        <h3 className="font-semibold mb-1 text-base" data-testid="home-featured-project-title">Arc
-                            Raiders Stat Tester</h3>
-                        <p className="text-sm mb-2" data-testid="home-featured-project-desc">
-                            A stat tester I created for the game Arc Raiders. Built using React and Vite.
-                        </p>
-                        <p className="text-xs" data-testid="home-featured-project-cta">
-                            View Project →
-                        </p>
-                    </a>
-                </div>
-            </section>
 
             <SectionWithHeader sectionTitle="About This Site" variant="surfaceContent">
                 <p className="mb-3" data-testid="home-about-desc">
@@ -75,6 +69,6 @@ export default function Home() {
                     </a>
                 </div>
             </SectionWithHeader>
-        </>
+        </SectionWithHeader>
     );
 }

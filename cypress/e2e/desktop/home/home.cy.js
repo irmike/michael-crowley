@@ -5,7 +5,7 @@ describe('Home Page - Desktop', () => {
   });
 
   it('displays the main heading and intro', () => {
-    cy.get('[data-testid="home-heading"]').should('be.visible');
+    cy.get('[data-testid="welcome-im-michael-title"]').should('be.visible');
     cy.get('[data-testid="home-intro"]').should('be.visible');
   });
 

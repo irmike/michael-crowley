@@ -10,7 +10,6 @@ export default function AboutPage() {
     
     return (
         <SectionWithHeader sectionTitle="About Me" variant="pageTitle">
-
             {/* Section 1: Photo + Name + Description */}
             <section className="app-surface p-6 mb-8 flex flex-col md:flex-row items-center gap-6"
                      data-testid="about-profile-section">

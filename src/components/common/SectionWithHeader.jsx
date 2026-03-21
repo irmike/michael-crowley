@@ -12,26 +12,30 @@ const SectionWithHeader = ({ children, sectionTitle, showDivider = false, varian
             outerTag: "fragment",
             outerClass: "",
             innerTag: "h1",
-            innerClass: "mb-2",
+            innerClass: "mb-2 app-text-accent",
         },
         standard: {
             outerTag: "section",
             outerClass: "flex flex-col gap-1",
             innerTag: "h2",
-            innerClass: "mb-1",
+            innerClass: "mb-1 app-text-accent",
         },
         surfaceContent: {
             outerTag: "section",
             outerClass: "app-surface p-6 mb-8",
             innerTag: "h2",
-            innerClass: "mb-4",
+            innerClass: "mb-4 app-text-accent",
         },
         invertedSurfaceContent: {
             outerTag: "section",
             outerClass: "app-inv-surface-base",
             innerTag: "h2",
-            innerClass: "inv-h2"
+            innerClass: "app-inv-title"
         }
+    }
+
+    if (process.env.NODE_ENV === 'development' && !variantStyles[variant]) {
+        console.warn(`SectionWithHeader: unknown variant "${variant}" — falling back to "standard". Valid variants: ${Object.keys(variantStyles).join(', ')}`);
     }
 
     const selectedVariant = variantStyles[variant] || variantStyles.standard;
