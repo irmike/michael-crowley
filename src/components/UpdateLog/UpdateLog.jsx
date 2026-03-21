@@ -21,10 +21,10 @@ export default function UpdateLog() {
         <Disclosure>
           {({ open }) => (
             <section
-              className="bg-white/10 border rounded-md"
+              className="app-inv-card bg-white/10 rounded-md"
               data-testid="update-log-past-updates-container"
             >
-              <Disclosure.Button className="app-inv-disclosure-btn app-inv-text hover:bg-white/20" data-testid="update-log-past-updates-toggle">
+              <Disclosure.Button className="app-inv-disclosure-btn hover:bg-white/20" data-testid="update-log-past-updates-toggle">
                 <span data-testid="update-log-past-updates-toggle-label">{open ? 'Hide Past Updates' : 'Show More Updates'}</span>
                 <span className="ml-2 font-semibold" data-testid="update-log-past-updates-toggle-expand">{open ? 'hide' : 'expand'}</span>
               </Disclosure.Button>

@@ -1,7 +1,7 @@
 "use client";
 
 import {getImagePath} from '@/utils/paths';
-import PDFViewer from '@/components/PDFViewer/PDFViewer';
+import EmbeddedViewer from "@/components/common/EmbeddedViewer";
 import SectionWithHeader from "@/components/common/SectionWithHeader";
 
 export default function ResumePage() {
@@ -18,7 +18,13 @@ export default function ResumePage() {
             </p>
 
             <div>
-                <PDFViewer url={resumeUrl} className="w-full h-[80vh]" style={{border: `1px solid var(--border)`}}/>
+                <EmbeddedViewer
+                    url={resumeUrl}
+                    title="Resume"
+                    viewerType="pdf"
+                    shouldResolveRelativeUrl={false}
+                    className="w-full h-[80vh] border app-border-theme"
+                />
             </div>
         </SectionWithHeader>
     );

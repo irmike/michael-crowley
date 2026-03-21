@@ -1,19 +1,14 @@
 "use client";
 
-import {useState} from "react";
 import {groupAndSortCertificates} from "@/utils/certificates";
-import SidebarDisplay from "@/components/SidebarDisplay/SidebarDisplay";
-import SkillsAccordian from "@/components/SkillsAccordian/SkillsAccordian";
+import SkillsAccordion from "@/components/SkillsAccordion/SkillsAccordion";
 import {certificatesData} from "@/data/certificateData";
 import SectionWithHeader from "@/components/common/SectionWithHeader";
+import SidebarPage from "@/components/SidebarDisplay/SidebarPage";
 
 
 export default function SkillsPage() {
 
-    const [activeContent, setActiveContent] = useState("skills");
-    
-    // Eventually this can be moved to a helper class. Right now the page structure isn't set in stone so until then
-    // it's easier to adjust here.
     const navigationItems = [
         {id: "skills", label: "Skills"},
         {id: "certificates", label: "Certificates"},
@@ -26,7 +21,7 @@ export default function SkillsPage() {
             case "skills":
                 return (
                     <div data-testid={'skills-section'}>
-                        <SkillsAccordian/>
+                        <SkillsAccordion/>
                     </div>
                 );
             case "certificates":
@@ -59,14 +54,11 @@ export default function SkillsPage() {
     };
 
     return (
-        
-        <SectionWithHeader sectionTitle={"Skills / Tech Stack"} variant={"pageTitle"}>
-            <SidebarDisplay
-                items={navigationItems}
-                renderPanel={renderPanel}
-                activeContent={activeContent}
-                setActiveContent={setActiveContent}
-            />
-        </SectionWithHeader>
+        <SidebarPage
+            title={"Skills / Tech Stack"}
+            items={navigationItems}
+            renderContent={renderPanel}
+            defaultActiveItemId="skills"
+        />
     );
 }

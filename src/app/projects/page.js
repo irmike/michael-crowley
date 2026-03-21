@@ -1,18 +1,15 @@
 "use client";
 
-import {useState} from "react";
 import {projectsData} from "@/data/projectsData";
-import {getImagePath} from "@/utils/paths";
-import SidebarDisplay from "@/components/SidebarDisplay/SidebarDisplay";
+import EmbeddedViewer from "@/components/common/EmbeddedViewer";
 import SectionWithHeader from "@/components/common/SectionWithHeader";
+import SidebarPage from "@/components/SidebarDisplay/SidebarPage";
 
 export default function ProjectsPage() {
     const navigationItems = projectsData.map((project) => ({
         id: project.id,
         label: project.name,
     }));
-
-    const [activeContent, setActiveContent] = useState(navigationItems[0]?.id);
 
     const renderPanel = ({activeContent}) => {
         const project = projectsData.find((p) => p.id === activeContent);
@@ -35,15 +32,12 @@ export default function ProjectsPage() {
 
                 {project.fileUrl ? (
                     <div>
-                        <iframe
+                        <EmbeddedViewer
                             title={project.name}
-                            src={
-                                project.fileUrl.startsWith("/")
-                                    ? getImagePath(project.fileUrl)
-                                    : project.fileUrl
-                            }
-                            className="w-full h-[60vh]"
-                            style={{border: `1px solid var(--border)`}}
+                            url={project.fileUrl}
+                            viewerType="iframe"
+                            className="w-full h-[60vh] border app-border-theme"
+                            testId="project-file-frame"
                         />
                     </div>
                 ) : null}
@@ -52,13 +46,11 @@ export default function ProjectsPage() {
     };
 
     return (
-        <SectionWithHeader sectionTitle="Projects" variant={"pageTitle"}>
-            <SidebarDisplay
-                items={navigationItems}
-                renderPanel={renderPanel}
-                activeContent={activeContent}
-                setActiveContent={setActiveContent}
-            />
-        </SectionWithHeader>
+        <SidebarPage
+            title="Projects"
+            items={navigationItems}
+            renderContent={renderPanel}
+            defaultActiveItemId={navigationItems[0]?.id}
+        />
     );
 }

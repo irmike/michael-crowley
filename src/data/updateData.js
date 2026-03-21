@@ -1,5 +1,21 @@
 export const updateData = [
     {
+        id: 6,
+        title: "More Styling Cleanup + New Components",
+        date: "2026-03-21",
+        description: "Consolidated shared styling ownership in globals, reduced repeated UI boilerplate with reusable wrappers, and stabilized lint/tooling compatibility for reliable standards enforcement.",
+        details: [
+            "Cleaned up global style ownership in globals.css (headings, inverted surfaces, and text utilities) to reduce cascade conflicts",
+            "Added and adopted app-border-theme to replace repeated inline border color styles with one reusable utility",
+            "Simplified UpdateLog inverted styling by merging overlapping responsibilities and removing redundant class usage",
+            "Added SidebarPage to standardize title plus sidebar page structure and reduce page-level duplication",
+            "Added EmbeddedViewer to centralize PDF-versus-iframe rendering logic across Resume, Projects, and FileModal",
+            "Migrated affected pages/components to canonical props while keeping backward-compatible aliases during transition",
+            "Documented styling ownership expectations in styledetails.md to guide future global/class extraction decisions",
+            "Resolved ESLint runtime mismatch by aligning versions so linting runs reliably again"
+        ]
+    },
+    {
         id: 5,
         title: "Sitewide Styling Cleanup",
         date: "2026-03-20",
@@ -54,7 +70,7 @@ export const updateData = [
         description: "Launched the initial version of my personal portfolio website.",
         details: [
             "Implemented core pages: Home, Skills, Projects, Resume, Contact",
-            "Created reusable components: FileModal, SkillsAccordian, SidebarDisplay",
+            "Created reusable components: FileModal, SkillsAccordion, SidebarDisplay",
             "Designed a clean and modern UI with Tailwind CSS", 
             "Only added bare minimum content to get the site live, with plans to expand and refine over time"
         ]
@@ -63,10 +79,10 @@ export const updateData = [
         id: 4,
         title: "Section Header Refactor for Skills Page",
         date: "2026-03-16",
-        description: "Standardized section headers across SkillsAccordian and related components using SectionWithHeader, improving code reuse and visual consistency.",
+        description: "Standardized section headers across SkillsAccordion and related components using SectionWithHeader, improving code reuse and visual consistency.",
         details: [
             "Create SectionWithHeader component for reusable section header + divider",
-            "Refactor SkillsAccordian to use SectionWithHeader for each skill category",
+            "Refactor SkillsAccordion to use SectionWithHeader for each skill category",
             "Update styling and layout to match global theme and ensure responsive design",
             "Added more Certificates",
             "Updated Certificates Display to group by category (added category field to certificateData)",
