@@ -12,10 +12,10 @@ export default function Update({ update }) {
             className="app-inv-disclosure-btn hover:bg-white/30"
             data-testid="update-disclosure-button"
           >
-            <section className="flex flex-wrap items-baseline gap-x-2 min-w-0">
+            <div className="flex flex-wrap items-baseline gap-x-2 min-w-0">
               <span className="font-semibold text-base" data-testid="update-title">{update.title}</span>
               <span className="text-xs whitespace-nowrap" data-testid="update-date">{update.date}</span>
-            </section>
+            </div>
             <span className="ml-2 font-semibold" data-testid="update-expand-toggle">{open ? 'hide' : 'expand'}</span>
           </Disclosure.Button>
           {update.description && (
