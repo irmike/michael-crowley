@@ -27,7 +27,7 @@ export default function AboutPage() {
                     <p className="text-base" data-testid="about-profile-desc">
                         Full Stack Developer and Test Automation Specialist with 8+ years of
                         experience building scalable web applications and ensuring software
-                        quality. I'm passionate about solving complex problems, writing clean
+                        quality. I&apos;m passionate about solving complex problems, writing clean
                         code, and mentoring junior developers.
                     </p>
                 </SectionWithHeader>
@@ -37,15 +37,15 @@ export default function AboutPage() {
             <SectionWithHeader sectionTitle="Background" variant={"surfaceContent"}>
                 <p className="mb-4" data-testid="about-background-desc1">
                     With a strong foundation in both front-end and back-end technologies,
-                    I've worked on projects ranging from SaaS platforms to internal
+                    I&apos;ve worked on projects ranging from SaaS platforms to internal
                     testing tools. I specialize in React, Spring Boot, and full-stack
                     JavaScript development, with a particular expertise in test automation
                     using Selenium and Cypress.
                 </p>
                 <p data-testid="about-background-desc2">
-                    I'm always learning and exploring new technologies—from containerization
+                    I&apos;m always learning and exploring new technologies—from containerization
                     with Docker to cloud deployment on AWS. I believe in writing code
-                    that's not just functional, but maintainable and a joy to work with.
+                    that&apos;s not just functional, but maintainable and a joy to work with.
                 </p>
             </SectionWithHeader>
 

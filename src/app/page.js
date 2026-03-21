@@ -42,11 +42,11 @@ export default function Home() {
             <SectionWithHeader sectionTitle="About This Site" variant="surfaceContent">
                 <p className="mb-3" data-testid="home-about-desc">
                     This website serves as my professional portfolio and resume, showcasing my skills, projects, and
-                    experience as a Full Stack Developer. Here you'll find information about my technical expertise,
-                    work history, and the projects I've built.
+                    experience as a Full Stack Developer. Here you&apos;ll find information about my technical expertise,
+                    work history, and the projects I&apos;ve built.
                 </p>
                 <p className="text-sm opacity-75" data-testid="home-about-note">
-                    <strong>Note:</strong> This site is a continued work in progress. I'm actively adding new features,
+                    <strong>Note:</strong> This site is a continued work in progress. I&apos;m actively adding new features,
                     updating content, and refining the design. Check back regularly for updates!
                 </p>
             </SectionWithHeader>
