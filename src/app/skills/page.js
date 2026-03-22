@@ -4,7 +4,7 @@ import {groupAndSortCertificates} from "@/utils/certificates";
 import SkillsAccordion from "@/components/SkillsAccordion/SkillsAccordion";
 import {certificatesData} from "@/data/certificateData";
 import SectionWithHeader from "@/components/common/SectionWithHeader";
-import SidebarPage from "@/components/SidebarDisplay/SidebarPage";
+import SidebarDisplay from "@/components/SidebarDisplay/SidebarDisplay";
 
 
 export default function SkillsPage() {
@@ -16,7 +16,7 @@ export default function SkillsPage() {
 
     const categoryOrder = ["Professional", "LinkedIn Learning"];
 
-    const renderPanel = ({activeContent, openFile}) => {
+    const renderContent = ({activeContent, openFile}) => {
         switch (activeContent) {
             case "skills":
                 return (
@@ -54,11 +54,12 @@ export default function SkillsPage() {
     };
 
     return (
-        <SidebarPage
-            title={"Skills / Tech Stack"}
-            items={navigationItems}
-            renderContent={renderPanel}
-            defaultActiveItemId="skills"
-        />
+        <SectionWithHeader sectionTitle={"Skills / Tech Stack"} variant={"pageTitle"}>
+            <SidebarDisplay
+                items={navigationItems}
+                renderContent={renderContent}
+                defaultActiveItemId="skills"
+            />
+        </SectionWithHeader>
     );
 }

@@ -4,14 +4,12 @@
  * Use this any time you link to an external URL (not an internal Next.js route).
  * For internal navigation, use Next.js <Link> instead.
  */
-export default function ExternalLink({ href, className, children, ...props }) {
+export default function ExternalLink({ href, children }) {
     return (
         <a
             href={href}
             target="_blank"
             rel="noreferrer"
-            className={className}
-            {...props}
         >
             {children}
         </a>

@@ -55,6 +55,12 @@ const VARIANT_STYLES = {
         outerClass: "mb-4 app-text-accent",
         innerTag: "section",
         innerClass: "app-surface p-3 mb-8"
+    },
+    reverseInvertedStandard: {
+        outerTag: "h4",
+        outerClass: "mb-2 app-text-accent",
+        innerTag: "section",
+        innerClass: "flex flex-wrap gap-2 mt-2"
     }
 };
 
@@ -71,7 +77,7 @@ const SectionWithHeader = ({children, sectionTitle, showDivider = false, variant
 
     const selectedVariant = VARIANT_STYLES[variant] || VARIANT_STYLES.standard;
     const isFragment = selectedVariant.outerTag === "fragment";
-    const isReverse = variant === "reverseSurfaceContent";
+    const isReverse = variant.includes("reverse");
     const ContainerOuter = isFragment ? Fragment : selectedVariant.outerTag;
     const ContainerInner = selectedVariant.innerTag;
 

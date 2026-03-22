@@ -3,7 +3,7 @@
 import {projectsData} from "@/data/projectsData";
 import EmbeddedViewer from "@/components/common/EmbeddedViewer";
 import SectionWithHeader from "@/components/common/SectionWithHeader";
-import SidebarPage from "@/components/SidebarDisplay/SidebarPage";
+import SidebarDisplay from "@/components/SidebarDisplay/SidebarDisplay";
 import ExternalLink from "@/components/common/ExternalLink";
 
 export default function ProjectsPage() {
@@ -12,7 +12,7 @@ export default function ProjectsPage() {
         label: project.name,
     }));
 
-    const renderPanel = ({activeContent}) => {
+    const renderContent = ({activeContent}) => {
         const project = projectsData.find((p) => p.id === activeContent);
 
         if (!project) {
@@ -47,11 +47,12 @@ export default function ProjectsPage() {
     };
 
     return (
-        <SidebarPage
-            title="Projects"
-            items={navigationItems}
-            renderContent={renderPanel}
-            defaultActiveItemId={navigationItems[0]?.id}
-        />
+        <SectionWithHeader sectionTitle="Projects" variant={"pageTitle"}>
+            <SidebarDisplay
+                items={navigationItems}
+                renderContent={renderContent}
+                defaultActiveItemId={navigationItems[0]?.id}
+            />
+        </SectionWithHeader>
     );
 }

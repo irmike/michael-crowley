@@ -46,8 +46,9 @@ export default function Home() {
                     work history, and the projects I&apos;ve built.
                 </p>
                 <p className="text-sm opacity-75" data-testid="home-about-note">
-                    <strong>Note:</strong> This site is a continued work in progress. I&apos;m actively adding new features,
-                    updating content, and refining the design. Check back regularly for updates!
+                    <strong>Note:</strong> This site is a continued work in progress. Currently, the site looks
+                    how I wanted it. My priority now, before adding any new features, is cleaning up the code to serve
+                    as the example it is meant to be.
                 </p>
             </SectionWithHeader>
 
