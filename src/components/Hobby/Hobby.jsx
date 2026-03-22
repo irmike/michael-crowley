@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Disclosure } from "@headlessui/react";
+import Image from "next/image";
 import { getImagePath } from "@/utils/paths";
 
 function Hobby({ hobby }) {
@@ -19,7 +20,14 @@ function Hobby({ hobby }) {
         if (!image || image.length === 0) return null;
         if (image.length === 1) {
             return (
-                <img src={getImagePath(image[0])} alt={title + ' image'} className="rounded-lg max-w-xs mt-2" data-testid="hobby-image" />
+                <Image
+                    src={getImagePath(image[0])}
+                    alt={title + " image"}
+                    width={320}
+                    height={240}
+                    className="rounded-lg max-w-xs h-auto mt-2"
+                    data-testid="hobby-image"
+                />
             );
         }
         // Custom carousel: arrows outside the image
@@ -34,9 +42,11 @@ function Hobby({ hobby }) {
                 >
                     ◀
                 </button>
-                <img
+                <Image
                     src={getImagePath(image[currentIndex])}
-                    alt={title + ' gallery ' + (currentIndex + 1)}
+                    alt={title + " gallery " + (currentIndex + 1)}
+                    width={256}
+                    height={240}
                     className="rounded-lg max-h-60 object-contain mx-auto"
                     style={{ maxWidth: '16rem' }}
                     data-testid="hobby-carousel-image"

@@ -1,12 +1,12 @@
-import { Fragment } from "react";
+import {Fragment} from "react";
 import {kebabify} from "@/utils/kebabify";
 
 /**
- * @typedef {'pageTitle' | 'standard' | 'surfaceContent' | 'invertedSurfaceContent'} VariantType
+ * @typedef {'pageTitle' | 'standard' | 'surfaceContent' | 'invertedSurfaceContent' | 'reverseSurfaceContent'} VariantType
  */
 
-const SectionWithHeader = ({ children, sectionTitle, showDivider = false, variant = "standard"}) => {
-    
+const SectionWithHeader = ({children, sectionTitle, showDivider = false, variant = "standard"}) => {
+
     const variantStyles = {
         pageTitle: {
             outerTag: "fragment",
@@ -31,6 +31,12 @@ const SectionWithHeader = ({ children, sectionTitle, showDivider = false, varian
             outerClass: "app-inv-surface-base",
             innerTag: "h2",
             innerClass: "app-inv-title"
+        },
+        reverseSurfaceContent: {
+            outerTag: "h2",
+            outerClass: "mb-4 app-text-accent",
+            innerTag: "section",
+            innerClass: "app-surface p-3 mb-8"
         }
     }
 
@@ -40,9 +46,10 @@ const SectionWithHeader = ({ children, sectionTitle, showDivider = false, varian
 
     const selectedVariant = variantStyles[variant] || variantStyles.standard;
     const isFragment = selectedVariant.outerTag === "fragment";
+    const isReverse = variant === "reverseSurfaceContent";
     const ContainerOuter = isFragment ? Fragment : selectedVariant.outerTag;
     const ContainerInner = selectedVariant.innerTag;
-    
+
     const normalizedTitle = kebabify(sectionTitle);
 
     const containerOuterProps = isFragment
@@ -51,20 +58,29 @@ const SectionWithHeader = ({ children, sectionTitle, showDivider = false, varian
             className: selectedVariant.outerClass,
             "data-testid": `${normalizedTitle}-section`,
         };
-    
-    return (
+    const containerInnerProps =
+        {
+            className: selectedVariant.innerClass,
+            "data-testid": `${normalizedTitle}-title`
+        };
+
+    return isReverse ? (
+        <>
+            <ContainerOuter {...containerOuterProps}>{sectionTitle}</ContainerOuter>
+            <ContainerInner {...containerInnerProps}>{children}</ContainerInner>
+        </>
+    ) : (
         <ContainerOuter {...containerOuterProps}>
-                <ContainerInner className={selectedVariant.innerClass} data-testid={`${normalizedTitle}-title`}>{sectionTitle}</ContainerInner>
-                {showDivider && (
-                    <div
-                        className="h-px w-full mb-2"
-                        style={{ backgroundColor: "var(--border)" }}
-                    />
-                )}
-            
+            <ContainerInner {...containerInnerProps}>{sectionTitle}</ContainerInner>
+            {showDivider && (
+                <div
+                    className="h-px w-full mb-2"
+                    style={{backgroundColor: "var(--border)"}}
+                />
+            )}
             {children}
         </ContainerOuter>
-    )
+    );
 }
 
 export default SectionWithHeader;

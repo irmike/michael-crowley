@@ -4,6 +4,7 @@ import {projectsData} from "@/data/projectsData";
 import EmbeddedViewer from "@/components/common/EmbeddedViewer";
 import SectionWithHeader from "@/components/common/SectionWithHeader";
 import SidebarPage from "@/components/SidebarDisplay/SidebarPage";
+import ExternalLink from "@/components/common/ExternalLink";
 
 export default function ProjectsPage() {
     const navigationItems = projectsData.map((project) => ({
@@ -24,9 +25,9 @@ export default function ProjectsPage() {
 
                 {project.sourceCodeUrl ? (
                     <p>
-                        <a href={project.sourceCodeUrl} target="_blank" rel="noreferrer">
+                        <ExternalLink href={project.sourceCodeUrl}>
                             View source code
-                        </a>
+                        </ExternalLink>
                     </p>
                 ) : null}
 

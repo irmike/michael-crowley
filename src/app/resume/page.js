@@ -11,9 +11,9 @@ export default function ResumePage() {
         <SectionWithHeader sectionTitle="Resume" variant={"pageTitle"}>
             <p>
                 You can view my resume below, or{" "}
-                <a href={resumeUrl} target="_blank" rel="noreferrer">
+                <ExternalLink href={resumeUrl}>
                     open it in a new tab
-                </a>
+                </ExternalLink>
                 .
             </p>
 
