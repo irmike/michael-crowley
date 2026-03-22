@@ -3,6 +3,7 @@
 import {getImagePath} from '@/utils/paths';
 import EmbeddedViewer from "@/components/common/EmbeddedViewer";
 import SectionWithHeader from "@/components/common/SectionWithHeader";
+import ExternalLink from "@/components/common/ExternalLink";
 
 export default function ResumePage() {
     const resumeUrl = getImagePath("/resume/Resume.pdf");
