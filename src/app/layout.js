@@ -1,7 +1,9 @@
 import "./globals.css";
 import Link from "next/link";
+import { Inter } from "next/font/google";
 
 const MOBILE_HEADER_LINK_TEXT_SIZE = "text-[13px]";
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 function Header() {
     return (
@@ -38,7 +40,7 @@ function Header() {
 export default function RootLayout({children}) {
     return (
         <html lang="en">
-        <body>
+        <body className={inter.className}>
         <Header/>
         <main className="app-main">{children}</main>
         </body>

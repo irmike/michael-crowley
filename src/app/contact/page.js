@@ -2,6 +2,7 @@
 
 import {contactData} from "@/data/contactData";
 import SectionWithHeader from "@/components/common/SectionWithHeader";
+import ExternalLink from "@/components/common/ExternalLink";
 
 export default function ContactPage() {
     return (
@@ -22,23 +23,15 @@ export default function ContactPage() {
                         </li>
                         <li>
                             <span className="font-semibold">GitHub:</span>{" "}
-                            <a
-                                href={contactData.github.url}
-                                target="_blank"
-                                rel="noopener"
-                            >
+                            <ExternalLink href={contactData.github.url}>
                                 {contactData.github.label}
-                            </a>
+                            </ExternalLink>
                         </li>
                         <li>
                             <span className="font-semibold">LinkedIn:</span>{" "}
-                            <a
-                                href={contactData.linkedin.url}
-                                target="_blank"
-                                rel="noopener"
-                            >
+                            <ExternalLink href={contactData.linkedin.url}>
                                 {contactData.linkedin.label}
-                            </a>
+                            </ExternalLink>
                         </li>
                     </ul>
                 </section>

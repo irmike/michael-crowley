@@ -1,10 +1,11 @@
 import FileModal from '../FileModal/FileModal';
 import { useState } from "react";
 
-const SidebarDisplay = ({ items, renderPanel, activeContent, setActiveContent }) => {
+const SidebarDisplay = ({ items, renderContent, defaultActiveItemId }) => {
     // Track which file is selected and whether the modal is open.
     const [selectedFile, setSelectedFile] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [activeItemId, setActiveItemId] = useState(defaultActiveItemId ?? items?.[0]?.id);
 
     const openFile = (file) => {
         setSelectedFile(file);
@@ -24,12 +25,12 @@ const SidebarDisplay = ({ items, renderPanel, activeContent, setActiveContent })
                 <nav aria-label="Sidebar navigation">
                     <ul className="flex flex-wrap sm:flex-col gap-2">
                         {items.map((item) => {
-                            const isActive = item.id === activeContent;
+                            const isActive = item.id === activeItemId;
                             return (
                                 <li key={item.id} className="shrink-0 w-auto">
                                     <button
                                         type="button"
-                                        onClick={() => setActiveContent(item.id)}
+                                        onClick={() => setActiveItemId(item.id)}
                                         className={
                                             "app-button w-full justify-start text-base sm:text-sm md:text-base " +
                                             (isActive ? "app-button--active" : "")
@@ -46,7 +47,7 @@ const SidebarDisplay = ({ items, renderPanel, activeContent, setActiveContent })
                 </nav>
             </aside>
             <div className="app-surface flex-1 p-3 max-h-full overflow-auto">
-                {renderPanel ? renderPanel({ activeContent, openFile }) : null}
+                {renderContent ? renderContent({ activeContent: activeItemId, openFile }) : null}
 
                 <FileModal
                     isOpen={isModalOpen}

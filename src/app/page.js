@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {getImagePath, getPagePath} from "@/utils/paths";
 import UpdateLog from '@/components/UpdateLog/UpdateLog';
 import SectionWithHeader from "@/components/common/SectionWithHeader";
@@ -10,11 +11,10 @@ export default function Home() {
         <SectionWithHeader sectionTitle="Welcome, I'm Michael!" variant="pageTitle">
             <p className="text-lg mb-12" data-testid="home-intro">Full Stack Developer | Test Automation Specialist |
                 Problem Solver | Nerd</p>
-
-            <h2 className="mb-4 app-text-accent" data-testid="home-featured-title">Featured Project</h2>
-            <section className="app-surface p-3 mb-8">
-                <a href={getPagePath("/projects#arc-stat-tester")} className="block"
-                   data-testid="home-featured-link">
+            
+            <SectionWithHeader sectionTitle="Featured Project" variant="reverseSurfaceContent">
+                <Link href={getPagePath("/projects#arc-stat-tester")} className="block"
+                      data-testid="home-featured-link">
                     <section
                         className="mb-3 mx-auto relative w-full max-w-xs aspect-3/2 rounded overflow-hidden border-4 border-black"
                         data-testid="home-featured-image-container">
@@ -35,8 +35,8 @@ export default function Home() {
                     <p className="text-xs" data-testid="home-featured-project-cta">
                         View Project →
                     </p>
-                </a>
-            </section>
+                </Link>
+            </SectionWithHeader>
 
 
             <SectionWithHeader sectionTitle="About This Site" variant="surfaceContent">
@@ -46,8 +46,9 @@ export default function Home() {
                     work history, and the projects I&apos;ve built.
                 </p>
                 <p className="text-sm opacity-75" data-testid="home-about-note">
-                    <strong>Note:</strong> This site is a continued work in progress. I&apos;m actively adding new features,
-                    updating content, and refining the design. Check back regularly for updates!
+                    <strong>Note:</strong> This site is a continued work in progress. Currently, the site looks
+                    how I wanted it. My priority now, before adding any new features, is cleaning up the code to serve
+                    as the example it is meant to be.
                 </p>
             </SectionWithHeader>
 
@@ -55,18 +56,18 @@ export default function Home() {
 
             <SectionWithHeader sectionTitle="Explore More" variant="standard" showDivider={true}>
                 <div className="flex flex-wrap gap-4" data-testid="home-explore-links">
-                    <a href={getPagePath("/skills")} className="app-button" data-testid="home-explore-skills">
+                    <Link href={getPagePath("/skills")} className="app-button" data-testid="home-explore-skills">
                         View All Skills
-                    </a>
-                    <a href={getPagePath("/projects")} className="app-button" data-testid="home-explore-projects">
+                    </Link>
+                    <Link href={getPagePath("/projects")} className="app-button" data-testid="home-explore-projects">
                         All Projects
-                    </a>
-                    <a href={getPagePath("/resume")} className="app-button" data-testid="home-explore-resume">
+                    </Link>
+                    <Link href={getPagePath("/resume")} className="app-button" data-testid="home-explore-resume">
                         Download Resume
-                    </a>
-                    <a href={getPagePath("/contact")} className="app-button" data-testid="home-explore-contact">
+                    </Link>
+                    <Link href={getPagePath("/contact")} className="app-button" data-testid="home-explore-contact">
                         Contact Me
-                    </a>
+                    </Link>
                 </div>
             </SectionWithHeader>
         </SectionWithHeader>
