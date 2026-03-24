@@ -25,21 +25,23 @@ import {kebabify} from "@/utils/kebabify";
 const VARIANT_STYLES = {
     hobby: {
         open: ["▲", "▼"],
-        buttonClass: "w-full text-left text-xl font-bold px-0 py-1 cursor-pointer flex items-center justify-between gap-2 app-text-accent hover:text-(--accent-strong) focus-visible:outline-2",
+        buttonClass: "w-full text-xl font-bold py-1 cursor-pointer flex justify-between app-text-accent",
         panelClass: "mt-1 flex flex-col gap-2",
         cardClass: "app-surface p-4 w-full",
+        descriptionClass: "mb-2 py-1 italic",
     },
     update: {
         open: ["hide", "expand"],
         buttonClass: "app-inv-disclosure-btn hover:bg-white/30",
         panelClass: "mt-1 text-sm",
         cardClass: "app-inv-card bg-white/20 mb-1 p-2",
+        descriptionClass: "mb-2 px-2 py-1 italic bg-white/30 rounded",
     }
 };
 
-function DescriptionBlock({description, kebabTitle}) {
+function DescriptionBlock({description, kebabTitle, descriptionClass}) {
     return (
-        <section className="mb-2 px-2 py-1 italic bg-white/30 rounded"
+        <section className={descriptionClass}
                  data-testid={`disclosure-card-description-${kebabTitle}`}>
             {description}
         </section>
@@ -50,7 +52,7 @@ function DisclosureCard({
                             title, subtitle, description, variant = "hobby",
                             showDescription = false, children
                         }) {
-    
+
     const selectedVariant = VARIANT_STYLES[variant] || VARIANT_STYLES.hobby;
     const kebabTitle = kebabify(title);
 
@@ -69,6 +71,7 @@ function DisclosureCard({
                             <span data-testid={`disclosure-card-title-${kebabTitle}`}>
                                 {title}
                             </span>
+                            
                             {subtitle && (
                                 <span className="text-xs whitespace-nowrap opacity-80"
                                       data-testid={`disclosure-card-subtitle-${kebabTitle}`}>
@@ -84,16 +87,18 @@ function DisclosureCard({
                     </Disclosure.Button>
 
                     {showDescription && description && (
-                        <DescriptionBlock description={description} kebabTitle={kebabTitle}/>
+                        <DescriptionBlock description={description} kebabTitle={kebabTitle}
+                                          descriptionClass={selectedVariant.descriptionClass}/>
                     )}
 
                     <Disclosure.Panel className={selectedVariant.panelClass}
                                       data-testid={`disclosure-card-panel-${kebabTitle}`}>
-                        <div className="mb-2">
-                            {!showDescription && description && (
-                                <DescriptionBlock description={description} kebabTitle={kebabTitle}/>
-                            )}
-                        </div>
+
+                        {!showDescription && description && (
+                            <DescriptionBlock description={description} kebabTitle={kebabTitle}
+                                              descriptionClass={selectedVariant.descriptionClass}/>
+                        )}
+
                         {children}
                     </Disclosure.Panel>
 
