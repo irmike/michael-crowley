@@ -1,34 +1,29 @@
 export const updateData = [
     {
-        id: 6,
-        title: "More Styling Cleanup + New Components",
-        date: "2026-03-21",
-        description: "Consolidated shared styling ownership in globals, reduced repeated UI boilerplate with reusable wrappers, and stabilized lint/tooling compatibility for reliable standards enforcement.",
+        id: 1,
+        title: "Initial Site Launch",
+        date: "2026-03-01",
+        description: "Launched the initial version of my personal portfolio website.",
         details: [
-            "Cleaned up global style ownership in globals.css (headings, inverted surfaces, and text utilities) to reduce cascade conflicts",
-            "Added and adopted app-border-theme to replace repeated inline border color styles with one reusable utility",
-            "Simplified UpdateLog inverted styling by merging overlapping responsibilities and removing redundant class usage",
-            "Added SidebarPage to standardize title plus sidebar page structure and reduce page-level duplication",
-            "Added EmbeddedViewer to centralize PDF-versus-iframe rendering logic across Resume, Projects, and FileModal",
-            "Migrated affected pages/components to canonical props while keeping backward-compatible aliases during transition",
-            "Documented styling ownership expectations in styledetails.md to guide future global/class extraction decisions",
-            "Resolved ESLint runtime mismatch by aligning versions so linting runs reliably again"
+            "Implemented core pages: Home, Skills, Projects, Resume, Contact",
+            "Created reusable components: FileModal, SkillsAccordion, SidebarDisplay",
+            "Designed a clean and modern UI with Tailwind CSS", 
+            "Only added bare minimum content to get the site live, with plans to expand and refine over time"
         ]
     },
     {
-        id: 5,
-        title: "Sitewide Styling Cleanup",
-        date: "2026-03-20",
-        description: "Expanded SectionWithHeader variants for broader page use, standardized page-title patterns, and simplified UpdateLog/Update inverted styling while preserving the intended visual hierarchy.",
+        id: 2,
+        title: "Mobile Display Fix",
+        date: "2026-03-02",
+        description: "Improved mobile responsiveness for all pages and components.",
         details: [
-            "Added and refined SectionWithHeader variants to support reusable patterns (including page title and surface-focused variants)",
-            "Applied the new page-title usage pattern across pages to improve consistency of heading structure",
-            "Reviewed remaining SWH Candidate sections and converted the strongest matches to shared variants where appropriate",
-            "Fixed SectionWithHeader runtime issues caused by dynamic container/tag handling and fragment edge cases",
-            "Standardized UpdateLog and Update disclosure/button structure to reduce repeated className complexity",
-            "Introduced and iterated on inverted surface globals (including app-inv-surface-base) to centralize repeated styling",
-            "Diagnosed and corrected heading/text and border-color conflicts while preserving rounded card appearance",
-            "Kept UpdateLog visuals aligned with the intended inverted theme (black text plus layered orange-tinted surfaces) after refactor attempts"
+            "Made SidebarDisplay fully mobile-friendly (responsive stacking, wrap buttons, proportional widths; avoid horizontal scroll bars; sidebar remains left on desktop, top on mobile)",
+            "Adjusted font sizes for headings and buttons for better readability on small screens",
+            "Prevented horizontal scrolling with overflow-x-hidden on main container/body; ensured all content and buttons wrap as needed",
+            "Reduced padding/margins on mobile using responsive classes (reviewed for excessive spacing)",
+            "Ensured modals (FileModal) are full width on mobile and use responsive max-width",
+            "Polished PDFViewer for mobile and desktop, ensuring the PDF is centered, container is not oversized, and styling matches the app theme in both ResumePage and FileModal",
+            "Created UpdateLog component for home page to display recent updates with expandable details"
         ]
     },
     {
@@ -49,33 +44,6 @@ export const updateData = [
         ]
     },
     {
-        id: 2,
-        title: "Mobile Display Fix",
-        date: "2026-03-02",
-        description: "Improved mobile responsiveness for all pages and components.",
-        details: [
-            "Made SidebarDisplay fully mobile-friendly (responsive stacking, wrap buttons, proportional widths; avoid horizontal scroll bars; sidebar remains left on desktop, top on mobile)",
-            "Adjusted font sizes for headings and buttons for better readability on small screens",
-            "Prevented horizontal scrolling with overflow-x-hidden on main container/body; ensured all content and buttons wrap as needed",
-            "Reduced padding/margins on mobile using responsive classes (reviewed for excessive spacing)",
-            "Ensured modals (FileModal) are full width on mobile and use responsive max-width",
-            "Polished PDFViewer for mobile and desktop, ensuring the PDF is centered, container is not oversized, and styling matches the app theme in both ResumePage and FileModal",
-            "Created UpdateLog component for home page to display recent updates with expandable details"
-        ]
-    },
-    {
-        id: 1,
-        title: "Initial Site Launch",
-        date: "2026-03-01",
-        description: "Launched the initial version of my personal portfolio website.",
-        details: [
-            "Implemented core pages: Home, Skills, Projects, Resume, Contact",
-            "Created reusable components: FileModal, SkillsAccordion, SidebarDisplay",
-            "Designed a clean and modern UI with Tailwind CSS", 
-            "Only added bare minimum content to get the site live, with plans to expand and refine over time"
-        ]
-    },
-    {
         id: 4,
         title: "Section Header Refactor for Skills Page",
         date: "2026-03-16",
@@ -87,6 +55,63 @@ export const updateData = [
             "Added more Certificates",
             "Updated Certificates Display to group by category (added category field to certificateData)",
             "Added desktop and mobile Cypress tests for Skills page (desktop: open each accordion, verify content; mobile: verify accordion functionality and responsive layout)"
+        ]
+    },
+    {
+        id: 5,
+        title: "Sitewide Styling Cleanup",
+        date: "2026-03-20",
+        description: "Expanded SectionWithHeader variants for broader page use, standardized page-title patterns, and simplified UpdateLog/Update inverted styling while preserving the intended visual hierarchy.",
+        details: [
+            "Added and refined SectionWithHeader variants to support reusable patterns (including page title and surface-focused variants)",
+            "Applied the new page-title usage pattern across pages to improve consistency of heading structure",
+            "Reviewed remaining SWH Candidate sections and converted the strongest matches to shared variants where appropriate",
+            "Fixed SectionWithHeader runtime issues caused by dynamic container/tag handling and fragment edge cases",
+            "Standardized UpdateLog and Update disclosure/button structure to reduce repeated className complexity",
+            "Introduced and iterated on inverted surface globals (including app-inv-surface-base) to centralize repeated styling",
+            "Diagnosed and corrected heading/text and border-color conflicts while preserving rounded card appearance",
+            "Kept UpdateLog visuals aligned with the intended inverted theme (black text plus layered orange-tinted surfaces) after refactor attempts"
+        ]
+    },
+    {
+        id: 6,
+        title: "More Styling Cleanup + New Components",
+        date: "2026-03-21",
+        description: "Consolidated shared styling ownership in globals, reduced repeated UI boilerplate with reusable wrappers, and stabilized lint/tooling compatibility for reliable standards enforcement.",
+        details: [
+            "Cleaned up global style ownership in globals.css (headings, inverted surfaces, and text utilities) to reduce cascade conflicts",
+            "Added and adopted app-border-theme to replace repeated inline border color styles with one reusable utility",
+            "Simplified UpdateLog inverted styling by merging overlapping responsibilities and removing redundant class usage",
+            "Added SidebarPage to standardize title plus sidebar page structure and reduce page-level duplication",
+            "Added EmbeddedViewer to centralize PDF-versus-iframe rendering logic across Resume, Projects, and FileModal",
+            "Migrated affected pages/components to canonical props while keeping backward-compatible aliases during transition",
+            "Documented styling ownership expectations in styledetails.md to guide future global/class extraction decisions",
+            "Resolved ESLint runtime mismatch by aligning versions so linting runs reliably again"
+        ]
+    },
+    {
+        id: 7,
+        title: "General Cleanup & Improvements",
+        date: "2026-03-22",
+        description: "Refactored and cleaned up codebase for maintainability, extracted reusable components (SimpleGallery, ExternalLink), standardized global styles, and improved code readability and structure across multiple components.",
+        details: [
+            "Extract SimpleGallery component from Hobby for image carousel reuse and code clarity",
+            "Create ExternalLink component to standardize external anchor usage and enforce consistent rel/target attributes",
+            "Improve global style ownership and reduce repeated inline classnames for tags and buttons",
+            "Add JSDoc documentation to key shared components for better editor support and maintainability",
+            "Refactor SectionWithHeader to hoist variant config to file scope and simplify logic",
+            "Validate and fix all errors and warnings in affected files after refactor"
+        ]
+    },
+    {
+        id: 8,
+        title: "DisclosureCard Component Refactor",
+        date: "2026-03-23",
+        description: "Created a reusable DisclosureCard component and refactored Hobby and Update components to use it for consistent expandable/collapsible UI patterns.",
+        details: [
+            "Create new DisclosureCard component for reusable disclosure/expandable card UI",
+            "Refactor Hobby component to use DisclosureCard for expandable sections",
+            "Refactor Update component to use DisclosureCard for expandable update details"
         ]
     }
 ];

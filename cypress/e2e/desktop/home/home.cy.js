@@ -36,9 +36,11 @@ describe('UpdateLog on Home Page', () => {
 
   it('shows the most recent update by default', () => {
     cy.get('[data-testid="recent-updates-section"]').within(() => {
-      cy.get('[data-testid="update-title"]').first().should('be.visible');
-      cy.get('[data-testid="update-disclosure-button"]').first().click();
-      cy.get('[data-testid="update-description"]').should('be.visible');
+      cy.get('[data-testid^="disclosure-card-container-"]').first().within(() => {
+        cy.get('[data-testid^="disclosure-card-title-"]').should('be.visible');
+        cy.get('[data-testid^="disclosure-card-button-"]').click();
+        cy.get('[data-testid^="disclosure-card-description-"]').should('be.visible');
+      });
     });
   });
 
@@ -46,18 +48,20 @@ describe('UpdateLog on Home Page', () => {
     cy.get('[data-testid="recent-updates-section"]').within(() => {
       cy.get('[data-testid="update-log-past-updates-toggle"]').click();
     });
-    cy.get('[data-testid="update-title"]').contains('Initial Site Launch', { timeout: 5000 }).should('be.visible');
+    cy.get('[data-testid="disclosure-card-title-initial-site-launch"]', { timeout: 5000 }).should('be.visible');
     cy.get('[data-testid="recent-updates-section"]').within(() => {
       cy.get('[data-testid="update-log-past-updates-toggle"]').click();
     });
-    cy.get('[data-testid="update-title"]').contains('Initial Site Launch').should('not.exist');
+    cy.get('[data-testid="disclosure-card-title-initial-site-launch"]').should('not.exist');
   });
 
   it('shows all details for the most recent update when expanded', () => {
     cy.get('[data-testid="recent-updates-section"]').within(() => {
-      cy.get('[data-testid="update-title"]').first().click();
-      cy.get('[data-testid="update-details-list"]').within(() => {
-        cy.get('[data-testid^="update-detail-"]').should('exist');
+      cy.get('[data-testid^="disclosure-card-container-"]').first().within(() => {
+        cy.get('[data-testid^="disclosure-card-button-"]').click();
+        cy.get('[data-testid="update-details-list"]').within(() => {
+          cy.get('[data-testid^="update-detail-"]').should('exist');
+        });
       });
     });
   });
@@ -65,7 +69,7 @@ describe('UpdateLog on Home Page', () => {
   it('shows the most recent update date first in the update log', () => {
     cy.get('[data-testid="recent-updates-section"]').within(() => {
       cy.get('[data-testid="update-log-past-updates-toggle"]').click();
-      cy.get('[data-testid="update-date"]').should('have.length.gte', 2).then($dates => {
+      cy.get('[data-testid^="disclosure-card-subtitle-"]').should('have.length.gte', 2).then($dates => {
         const firstDate = $dates[0].textContent.trim();
         const secondDate = $dates[1].textContent.trim();
         const first = new Date(firstDate);
