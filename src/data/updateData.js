@@ -88,5 +88,30 @@ export const updateData = [
             "Updated Certificates Display to group by category (added category field to certificateData)",
             "Added desktop and mobile Cypress tests for Skills page (desktop: open each accordion, verify content; mobile: verify accordion functionality and responsive layout)"
         ]
+    },
+    {
+        id: 7,
+        title: "DisclosureCard Component Refactor",
+        date: "2026-03-23",
+        description: "Created a reusable DisclosureCard component and refactored Hobby and Update components to use it for consistent expandable/collapsible UI patterns.",
+        details: [
+            "Create new DisclosureCard component for reusable disclosure/expandable card UI",
+            "Refactor Hobby component to use DisclosureCard for expandable sections",
+            "Refactor Update component to use DisclosureCard for expandable update details"
+        ]
+    },
+    {
+        id: 6,
+        title: "General Cleanup & Improvements",
+        date: "2026-03-22",
+        description: "Refactored and cleaned up codebase for maintainability, extracted reusable components (SimpleGallery, ExternalLink), standardized global styles, and improved code readability and structure across multiple components.",
+        details: [
+            "Extract SimpleGallery component from Hobby for image carousel reuse and code clarity",
+            "Create ExternalLink component to standardize external anchor usage and enforce consistent rel/target attributes",
+            "Improve global style ownership and reduce repeated inline classnames for tags and buttons",
+            "Add JSDoc documentation to key shared components for better editor support and maintainability",
+            "Refactor SectionWithHeader to hoist variant config to file scope and simplify logic",
+            "Validate and fix all errors and warnings in affected files after refactor"
+        ]
     }
 ];

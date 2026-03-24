@@ -58,7 +58,7 @@ const VARIANT_STYLES = {
     },
     reverseInvertedStandard: {
         outerTag: "h4",
-        outerClass: "mb-2 app-text-accent",
+        outerClass: "app-text-accent",
         innerTag: "section",
         innerClass: "flex flex-wrap gap-2 mt-2"
     }

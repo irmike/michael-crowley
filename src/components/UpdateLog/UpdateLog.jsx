@@ -3,12 +3,6 @@ import { updateData } from '@/data/updateData';
 import Update from './Update';
 import SectionWithHeader from "@/components/common/SectionWithHeader";
 
-/* 
-* Note: this works for now, and it's much cleaner than before, but the styling still needs a lot of work here and
-* throughout the entire site. I have this planned as a future update. In the meantime, as of 3-20-26, 
-* I began work towards making that effort easier by moving things to global classes. 
-* */
-
 export default function UpdateLog() {
   // Sort updates by date descending
   const sortedUpdates = [...updateData].sort((a, b) => new Date(b.date) - new Date(a.date));
