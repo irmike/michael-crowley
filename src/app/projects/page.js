@@ -20,7 +20,7 @@ export default function ProjectsPage() {
         }
 
         return (
-            <SectionWithHeader sectionTitle={project.name} variant={"standard"}>
+            <SectionWithHeader sectionTitle={project.name}>
                 <p>{project.info}</p>
 
                 {project.sourceCodeUrl ? (
@@ -32,14 +32,12 @@ export default function ProjectsPage() {
                 ) : null}
 
                 {project.fileUrl ? (
-                    <div>
-                        <EmbeddedViewer
-                            title={project.name}
-                            url={project.fileUrl}
-                            viewerType="iframe"
-                            testId="project-file-frame"
-                        />
-                    </div>
+                    <EmbeddedViewer
+                        title={project.name}
+                        url={project.fileUrl}
+                        viewerType="iframe"
+                        testId="project-file-frame"
+                    />
                 ) : null}
             </SectionWithHeader>
         );

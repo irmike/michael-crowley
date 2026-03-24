@@ -23,7 +23,7 @@ export default function AboutPage() {
                     data-testid="about-profile-image"
                 />
                 
-                <SectionWithHeader sectionTitle="Michael Crowley" variant={"standard"}>
+                <SectionWithHeader sectionTitle="Michael Crowley">
                     <p data-testid="about-profile-desc">
                         Full Stack Developer and Test Automation Specialist with 8+ years of
                         experience building scalable web applications and ensuring software

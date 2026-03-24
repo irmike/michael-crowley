@@ -12,15 +12,14 @@ function SkillsAccordion() {
                     <SectionWithHeader
                         key={subSectionIndex}
                         sectionTitle={sectionTitle}
-                        showDivider={true}
-                        variant={"standard"}
+                        showDivider
                     >
                         <div className="flex flex-wrap gap-2" data-testid={`skills-accordion-section-skills-${sectionTitle}`}>
                             {skillsByName &&
                                 Object.entries(skillsByName).map(([skillName, experience]) => (
                                     <Disclosure key={skillName}>
                                         {({ open }) => (
-                                            <div className="relative" data-testid={`skill-disclosure-${skillName}`}> 
+                                            <div data-testid={`skill-disclosure-${skillName}`}> 
                                                 <Disclosure.Button
                                                     className={
                                                         "app-button text-sm py-1.5 " +

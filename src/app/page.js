@@ -54,7 +54,7 @@ export default function Home() {
 
             <UpdateLog/>
 
-            <SectionWithHeader sectionTitle="Explore More" variant="standard" showDivider={true}>
+            <SectionWithHeader sectionTitle="Explore More" showDivider>
                 <div className="flex flex-wrap gap-4" data-testid="home-explore-links">
                     <Link href={getPagePath("/skills")} className="app-button" data-testid="home-explore-skills">
                         View All Skills

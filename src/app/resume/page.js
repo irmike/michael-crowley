@@ -18,15 +18,13 @@ export default function ResumePage() {
                 .
             </p>
 
-            <div>
-                <EmbeddedViewer
-                    url={resumeUrl}
-                    title="Resume"
-                    viewerType="pdf"
-                    shouldResolveRelativeUrl={false}
-                    className="w-full h-[80vh] border app-border-theme"
-                />
-            </div>
+            <EmbeddedViewer
+                url={resumeUrl}
+                title="Resume"
+                viewerType="pdf"
+                shouldResolveRelativeUrl={false}
+                className="w-full h-[80vh] border app-border-theme"
+            />
         </SectionWithHeader>
     );
 }
