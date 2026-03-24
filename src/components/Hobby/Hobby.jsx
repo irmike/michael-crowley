@@ -8,15 +8,14 @@ function Hobby({hobby}) {
     const {title, description, favorites, image} = hobby;
 
     return (
-        <div className="flex flex-row gap-4">
-            <DisclosureCard variant={"hobby"} title={title} description={description}>
+        <DisclosureCard variant={"hobby"} title={title} description={description}>
 
                 {favorites && favorites.length > 0 && (
                     <SectionWithHeader sectionTitle={"Favorites"} variant={"reverseInvertedStandard"}>
                         <div className="flex flex-wrap gap-2" data-testid="hobby-favorites-list">
                             {favorites.map((fav, idx) => (
                                 <span key={idx}
-                                      className="inline-block bg-(--surface) border border-(--border) rounded-lg px-3 py-1 text-sm text-(--accent) shadow-sm"
+                                      className="bg-(--surface) border border-(--border) rounded-lg px-3 py-1 text-sm text-(--accent) shadow-sm"
                                       data-testid="hobby-favorite">
                                         {fav}
                                     </span>
@@ -25,12 +24,11 @@ function Hobby({hobby}) {
                     </SectionWithHeader>
                 )}
 
-                <div className="w-full flex justify-center" data-testid="hobby-image-container">
-                    <SimpleGallery images={image} alt={title}/>
-                </div>
-                
-            </DisclosureCard>
-        </div>
+            <div className="flex justify-center" data-testid="hobby-image-container">
+                <SimpleGallery images={image} alt={title}/>
+            </div>
+
+        </DisclosureCard>
     );
 }
 

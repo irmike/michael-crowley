@@ -37,7 +37,6 @@ export default function ProjectsPage() {
                             title={project.name}
                             url={project.fileUrl}
                             viewerType="iframe"
-                            className="w-full h-[60vh] border app-border-theme"
                             testId="project-file-frame"
                         />
                     </div>

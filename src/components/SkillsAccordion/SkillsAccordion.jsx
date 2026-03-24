@@ -23,7 +23,7 @@ function SkillsAccordion() {
                                             <div className="relative" data-testid={`skill-disclosure-${skillName}`}> 
                                                 <Disclosure.Button
                                                     className={
-                                                        "app-button text-sm px-3 py-1.5 " +
+                                                        "app-button text-sm py-1.5 " +
                                                         (open ? "app-button--active" : "")
                                                     }
                                                     data-testid={`skill-button-${skillName}`}

@@ -60,7 +60,7 @@ const VARIANT_STYLES = {
         outerTag: "h4",
         outerClass: "app-text-accent",
         innerTag: "section",
-        innerClass: "flex flex-wrap gap-2 mt-2"
+        innerClass: "mt-2"
     }
 };
 

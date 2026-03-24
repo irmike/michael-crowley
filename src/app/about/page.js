@@ -24,7 +24,7 @@ export default function AboutPage() {
                 />
                 
                 <SectionWithHeader sectionTitle="Michael Crowley" variant={"standard"}>
-                    <p className="text-base" data-testid="about-profile-desc">
+                    <p data-testid="about-profile-desc">
                         Full Stack Developer and Test Automation Specialist with 8+ years of
                         experience building scalable web applications and ensuring software
                         quality. I&apos;m passionate about solving complex problems, writing clean

@@ -32,7 +32,7 @@ const SidebarDisplay = ({ items, renderContent, defaultActiveItemId }) => {
                                         type="button"
                                         onClick={() => setActiveItemId(item.id)}
                                         className={
-                                            "app-button w-full justify-start text-base sm:text-sm md:text-base " +
+                                            "app-button w-full justify-start sm:text-sm md:text-base " +
                                             (isActive ? "app-button--active" : "")
                                         }
                                         aria-current={isActive ? "page" : undefined}
