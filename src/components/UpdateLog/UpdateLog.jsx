@@ -15,7 +15,7 @@ export default function UpdateLog() {
         <Disclosure>
           {({ open }) => (
             <section
-              className="app-inv-card bg-white/10 rounded-md"
+              className="app-inv-card bg-white/10"
               data-testid="update-log-past-updates-container"
             >
               <Disclosure.Button className="app-inv-disclosure-btn hover:bg-white/20" data-testid="update-log-past-updates-toggle">

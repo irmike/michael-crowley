@@ -29,7 +29,7 @@ const FileModal = ({ isOpen, onClose, file }) => {
                         className="w-full h-[60vh] border app-border-theme"
                     />
                 </div>
-                <div className="p-4 border-t app-border-theme flex justify-end gap-2">
+                <div className="p-4 border-t app-border-theme flex justify-end">
                     <button type="button" onClick={handleOpenInNewTab} className="app-button" data-testid="file-modal-open-new-tab">
                         Open in new tab
                     </button>

@@ -8,7 +8,7 @@ export default function ContactPage() {
     return (
         <div className={"max-w-lg mx-auto"} data-testid={"contact-page-wrapper"}>
             <SectionWithHeader sectionTitle="Contact" variant={"pageTitle"}>
-                <section className="app-surface p-6 max-w-lg mx-auto">
+                <section className="app-surface p-6">
                     <ul className="space-y-4">
                         <li>
                             <span className="font-semibold">Name:</span> {contactData.name}
