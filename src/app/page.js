@@ -6,21 +6,6 @@ import {getImagePath, getPagePath} from "@/utils/paths";
 import UpdateLog from '@/components/UpdateLog/UpdateLog';
 import SectionWithHeader from "@/components/common/SectionWithHeader";
 
-export const metadata = {
-    openGraph: {
-        title: "Michael's Resume Website",
-        description: "Full Stack Developer | Test Automation Specialist | Problem Solver | Nerd",
-        images: [
-            {
-                url: "/home/home_image.png",
-                width: 1200,
-                height: 630,
-                alt: "Michael's Resume Website Preview"
-            }
-        ]
-    }
-};
-
 export default function Home() {
     return (
         <SectionWithHeader sectionTitle="Welcome, I'm Michael!" variant="pageTitle">
@@ -28,7 +13,7 @@ export default function Home() {
                 Problem Solver | Nerd</p>
             
             <SectionWithHeader sectionTitle="Featured Project" variant="reverseSurfaceContent">
-                <Link href={getPagePath("/projects")} className="block"
+                <Link href={getPagePath("/projects#arc-stat-tester")} className="block"
                       data-testid="home-featured-link">
                     <section
                         className="mb-3 mx-auto relative w-full max-w-xs aspect-3/2 rounded overflow-hidden border-4 border-black"
