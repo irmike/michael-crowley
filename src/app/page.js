@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {getImagePath, getPagePath} from "@/utils/paths";
+import {getImagePath} from "@/utils/paths";
 import UpdateLog from '@/components/UpdateLog/UpdateLog';
 import SectionWithHeader from "@/components/common/SectionWithHeader";
 
@@ -13,7 +13,7 @@ export default function Home() {
                 Problem Solver | Nerd</p>
             
             <SectionWithHeader sectionTitle="Featured Project" variant="reverseSurfaceContent">
-                <Link href={getPagePath("/projects#arc-stat-tester")} className="block"
+                <Link href="/projects" className="block"
                       data-testid="home-featured-link">
                     <section
                         className="mb-3 mx-auto relative w-full max-w-xs aspect-3/2 rounded overflow-hidden border-4 border-black"
@@ -56,16 +56,16 @@ export default function Home() {
 
             <SectionWithHeader sectionTitle="Explore More" showDivider>
                 <div className="flex flex-wrap gap-4" data-testid="home-explore-links">
-                    <Link href={getPagePath("/skills")} className="app-button" data-testid="home-explore-skills">
+                    <Link href="/skills" className="app-button" data-testid="home-explore-skills">
                         View All Skills
                     </Link>
-                    <Link href={getPagePath("/projects")} className="app-button" data-testid="home-explore-projects">
+                    <Link href="/projects" className="app-button" data-testid="home-explore-projects">
                         All Projects
                     </Link>
-                    <Link href={getPagePath("/resume")} className="app-button" data-testid="home-explore-resume">
+                    <Link href="/resume" className="app-button" data-testid="home-explore-resume">
                         Download Resume
                     </Link>
-                    <Link href={getPagePath("/contact")} className="app-button" data-testid="home-explore-contact">
+                    <Link href="/contact" className="app-button" data-testid="home-explore-contact">
                         Contact Me
                     </Link>
                 </div>
